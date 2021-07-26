@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpicetifyManager.Properties {
+namespace SpicetifySettingsApp.Properties {
     using System;
     
     
@@ -57,6 +57,36 @@ namespace SpicetifyManager.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Bold {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Regular {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_SemiBold {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_SemiBold", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

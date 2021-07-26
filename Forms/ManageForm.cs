@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using SpicetifyManager.My;
 
 namespace SpicetifyManager
 {
@@ -9,10 +11,21 @@ namespace SpicetifyManager
         {
             _Spicetify = spicetify;
             InitializeComponent();
+
+            LoadFonts();
             LoadColors();
         }
 
         private Spicetify _Spicetify;
+
+        private void LoadFonts()
+        {
+            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
+            RestartBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            UpgradeBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            BackupBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            ClearBackupBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+        }
 
         private void LoadColors()
         {

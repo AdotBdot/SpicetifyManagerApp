@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
+using SpicetifyManager.My;
 
 namespace SpicetifyManager
 {
@@ -11,7 +13,10 @@ namespace SpicetifyManager
             _Settings = settings;
             _Spicetify = spicetify;
             InitializeComponent();
+
             LoadColors();
+            LoadFonts();
+
             InitControls();
         }
 
@@ -25,6 +30,18 @@ namespace SpicetifyManager
             InitControls();
         }
 
+        private void LoadFonts()
+        {
+            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
+            label1.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            label2.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            ExtensionsList.Font = new Font(Fonts.PFC.Families[0], 11.25f);
+            CustomAppsList.Font = new Font(Fonts.PFC.Families[0], 11.25f);
+            SaveBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            ApplyBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            ExtsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            CustomAppsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+        }
 
         private void InitControls()
         {

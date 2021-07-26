@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using SpicetifyManager.My;
 
 namespace SpicetifyManager
 {
@@ -10,8 +12,12 @@ namespace SpicetifyManager
             _Settings = settings;
             _Spicetify = spicetify;
             InitializeComponent();
+
+            LoadFonts();
             LoadColors();
+
             InitControls();
+
             OpenChildForm(new ThemesForm(settings, spicetify));
             SetActiveButton(ThemesButton);
         }
@@ -27,6 +33,15 @@ namespace SpicetifyManager
                 WarningIcon.Hide();
             else
                 WarningIcon.Show();
+        }
+
+        private void LoadFonts()
+        {
+            AboutButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            ManageButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            ReloadButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            SettingsButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            ThemesButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
         }
 
         private void LoadColors()
