@@ -10,9 +10,6 @@ namespace SpicetifyManager
         public static class Fonts
         {
             public static PrivateFontCollection PFC = new PrivateFontCollection();
-            public static Font Regular;
-            public static Font SemiBold;
-            public static Font Bold;
         }
 
         public static class Colors

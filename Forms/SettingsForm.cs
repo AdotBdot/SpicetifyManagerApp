@@ -86,6 +86,25 @@ namespace SpicetifyManager
             ConfigFileBtn.ForeColor = Colors.TxtDark;
         }
 
+        private void InitControls()
+        {
+            PrefsPathInput.Text = _Settings.PrefsPath;
+            OverwriteAssetsChkBox.Checked = _Settings.OverwriteAssets;
+            SpotifyPathInput.Text = _Settings.SpotifyPath;
+            InjectCssChkBox.Checked = _Settings.InjectCss;
+            ReplaceColorsChkBox.Checked = _Settings.ReplaceColors;
+            LaunchFlagsInput.Text = _Settings.SpotifyLaunchFlags;
+
+            DisableSentryChkBox.Checked = _Settings.DisableSentry;
+            DisableUiLoggingChkBox.Checked = _Settings.DisableUiLogging;
+            RemoveRtlRuleChkBox.Checked = _Settings.RemoveRtlRule;
+            ExposeApisChkBox.Checked = _Settings.ExposeApis;
+            DisableUpgradeCheckChkBox.Checked = _Settings.DisableUpgradeCheck;
+
+            HomeConfigChkBox.Checked = _Settings.HomeConfig;
+            SidebarConfigChkBox.Checked = _Settings.SidebarConfig;
+        }
+
         private void ReadUserInput()
         {
             _Settings.PrefsPath = PrefsPathInput.Text;
@@ -104,25 +123,6 @@ namespace SpicetifyManager
 
             _Settings.HomeConfig = HomeConfigChkBox.Checked;
             _Settings.SidebarConfig = SidebarConfigChkBox.Checked;
-        }
-
-        private void InitControls()
-        {
-            PrefsPathInput.Text = _Settings.PrefsPath;
-            OverwriteAssetsChkBox.Checked = _Settings.OverwriteAssets;
-            SpotifyPathInput.Text = _Settings.SpotifyPath;
-            InjectCssChkBox.Checked = _Settings.InjectCss;
-            ReplaceColorsChkBox.Checked = _Settings.ReplaceColors;
-            LaunchFlagsInput.Text = _Settings.SpotifyLaunchFlags;
-
-            DisableSentryChkBox.Checked = _Settings.DisableSentry;
-            DisableUiLoggingChkBox.Checked = _Settings.DisableUiLogging;
-            RemoveRtlRuleChkBox.Checked = _Settings.RemoveRtlRule;
-            ExposeApisChkBox.Checked = _Settings.ExposeApis;
-            DisableUpgradeCheckChkBox.Checked = _Settings.DisableUpgradeCheck;
-
-            HomeConfigChkBox.Checked = _Settings.HomeConfig;
-            SidebarConfigChkBox.Checked = _Settings.SidebarConfig;
         }
 
 

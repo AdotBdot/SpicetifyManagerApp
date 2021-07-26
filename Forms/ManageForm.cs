@@ -18,6 +18,7 @@ namespace SpicetifyManager
 
         private Spicetify _Spicetify;
 
+
         private void LoadFonts()
         {
             Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
@@ -40,6 +41,7 @@ namespace SpicetifyManager
             ClearBackupBtn.BackColor = Colors.Primary;
             ClearBackupBtn.ForeColor = Colors.TxtDark;
         }
+
 
         private void ManageForm_Load(object sender, EventArgs e)
         {

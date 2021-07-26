@@ -23,7 +23,6 @@ namespace SpicetifyManager
         private Settings _Settings;
         private Spicetify _Spicetify;
 
-
         public void Reload()
         {
             _Settings.LoadConfig();

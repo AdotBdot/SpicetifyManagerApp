@@ -24,13 +24,6 @@ namespace SpicetifyManager
         private Spicetify _Spicetify;
 
 
-        private void InitControls()
-        {
-            ManagerVer.Text = "1.0";
-            SpicetifyVer.Text = _Spicetify.Version;
-            SpotifyVer.Text = _Settings.SpotifyVersion;
-        }
-
         private void LoadFonts()
         {
             Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
@@ -70,6 +63,13 @@ namespace SpicetifyManager
             BugReportLink.BackColor = Colors.GetBg(1);
             IconsProviderLink.LinkColor = Colors.Primary;
             IconsProviderLink.BackColor = Colors.GetBg(1);
+        }
+
+        private void InitControls()
+        {
+            ManagerVer.Text = "1.0";
+            SpicetifyVer.Text = _Spicetify.Version;
+            SpotifyVer.Text = _Settings.SpotifyVersion;
         }
 
 

@@ -14,8 +14,8 @@ namespace SpicetifyManager
             _Spicetify = spicetify;
             InitializeComponent();
 
-            LoadColors();
             LoadFonts();
+            LoadColors();
 
             InitControls();
         }
@@ -23,12 +23,12 @@ namespace SpicetifyManager
         private Settings _Settings;
         private Spicetify _Spicetify;
 
-
         public void Reload()
         {
             _Settings.LoadConfig();
             InitControls();
         }
+
 
         private void LoadFonts()
         {
@@ -41,6 +41,22 @@ namespace SpicetifyManager
             ApplyBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
             ExtsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
             CustomAppsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+        }
+
+        private void LoadColors()
+        {
+            this.BackColor = Colors.GetBg(0);
+            Title.ForeColor = Colors.TxtLight;
+            label1.ForeColor = Colors.TxtLight;
+            label2.ForeColor = Colors.TxtLight;
+            ExtensionsList.BackColor = Colors.GetBg(2);
+            ExtensionsList.ForeColor = Colors.TxtLight;
+            CustomAppsList.BackColor = Colors.GetBg(2);
+            CustomAppsList.ForeColor = Colors.TxtLight;
+            SaveBtn.BackColor = Colors.Primary;
+            ApplyBtn.BackColor = Colors.Primary;
+            ExtsFolderBtn.BackColor = Colors.Primary;
+            CustomAppsFolderBtn.BackColor = Colors.Primary;
         }
 
         private void InitControls()
@@ -83,22 +99,6 @@ namespace SpicetifyManager
             }
 
             _Settings.CustomAppsList = NewAppsList;
-        }
-
-        private void LoadColors()
-        {
-            this.BackColor = Colors.GetBg(0);
-            Title.ForeColor = Colors.TxtLight;
-            label1.ForeColor = Colors.TxtLight;
-            label2.ForeColor = Colors.TxtLight;
-            ExtensionsList.BackColor = Colors.GetBg(2);
-            ExtensionsList.ForeColor = Colors.TxtLight;
-            CustomAppsList.BackColor = Colors.GetBg(2);
-            CustomAppsList.ForeColor = Colors.TxtLight;
-            SaveBtn.BackColor = Colors.Primary;
-            ApplyBtn.BackColor = Colors.Primary;
-            ExtsFolderBtn.BackColor = Colors.Primary;
-            CustomAppsFolderBtn.BackColor = Colors.Primary;
         }
 
 
