@@ -31,27 +31,27 @@ namespace SpicetifyManager
 
         private void LoadFonts()
         {
-            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
-            label1.Font = new Font(Fonts.PFC.Families[1], 12);
-            label2.Font = new Font(Fonts.PFC.Families[1], 12);
-            label3.Font = new Font(Fonts.PFC.Families[1], 12);
-            PrefsPathInput.Font = new Font(Fonts.PFC.Families[0], 10);
-            SpotifyPathInput.Font = new Font(Fonts.PFC.Families[0], 10);
-            LaunchFlagsInput.Font = new Font(Fonts.PFC.Families[0], 10);
-            OverwriteAssetsChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            CheckSpicetifyUpgradeChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            InjectCssChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            ReplaceColorsChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            HomeConfigChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            SidebarConfigChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            DisableSentryChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            DisableUiLoggingChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            RemoveRtlRuleChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            ExposeApisChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            DisableUpgradeCheckChkBox.Font = new Font(Fonts.PFC.Families[1], 12);
-            SaveBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            ApplyBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            ConfigFileBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            Title.Font = new Font(Fonts.Pfc.Families[0], 18, FontStyle.Bold);
+            label1.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label2.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label3.Font = new Font(Fonts.Pfc.Families[1], 12);
+            PrefsPathInput.Font = new Font(Fonts.Pfc.Families[0], 10);
+            SpotifyPathInput.Font = new Font(Fonts.Pfc.Families[0], 10);
+            LaunchFlagsInput.Font = new Font(Fonts.Pfc.Families[0], 10);
+            OverwriteAssetsChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            CheckSpicetifyUpgradeChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            InjectCssChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            ReplaceColorsChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            HomeConfigChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            SidebarConfigChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            DisableSentryChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            DisableUiLoggingChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            RemoveRtlRuleChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            ExposeApisChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            DisableUpgradeCheckChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            SaveBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            ApplyBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            ConfigFileBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
 
         private void LoadColors()

@@ -13,9 +13,9 @@ namespace SpicetifyManager
 
         public string ReadString(string name)
         {
-            foreach (string Line in Lines)
+            foreach(string Line in Lines)
             {
-                if (Line.Contains(name))
+                if(Line.Contains(name))
                 {
                     string L = RemoveWhitespace(Line);
                     return L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1);
@@ -27,9 +27,9 @@ namespace SpicetifyManager
 
         public string ReadFullString(string name)
         {
-            foreach (string Line in Lines)
+            foreach(string Line in Lines)
             {
-                if (Line.Contains(name))
+                if(Line.Contains(name))
                 {
                     return Line.Substring(Line.IndexOf("= ", StringComparison.Ordinal) + 1).Trim();
                 }
@@ -40,9 +40,9 @@ namespace SpicetifyManager
 
         public bool ReadBool(string name)
         {
-            foreach (string Line in Lines)
+            foreach(string Line in Lines)
             {
-                if (Line.Contains(name))
+                if(Line.Contains(name))
                 {
                     string L = RemoveWhitespace(Line);
                     return L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1) == "1" ? true : false;
@@ -54,15 +54,15 @@ namespace SpicetifyManager
 
         public List<string> ReadList(string name)
         {
-            foreach (string Line in Lines)
+            foreach(string Line in Lines)
             {
-                if (Line.Contains(name))
+                if(Line.Contains(name))
                 {
                     string L = RemoveWhitespace(Line);
                     L = L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1);
                     List<string> ReturnValue = new List<string>();
 
-                    while (L.Contains("|"))
+                    while(L.Contains("|"))
                     {
                         string Value = L.Substring(0, L.IndexOf("|", StringComparison.Ordinal));
                         ReturnValue.Add(Value);

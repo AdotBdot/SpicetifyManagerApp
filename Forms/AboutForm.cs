@@ -26,19 +26,19 @@ namespace SpicetifyManager
 
         private void LoadFonts()
         {
-            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
-            label1.Font = new Font(Fonts.PFC.Families[1], 12);
-            label2.Font = new Font(Fonts.PFC.Families[1], 12);
-            label3.Font = new Font(Fonts.PFC.Families[1], 12);
-            label4.Font = new Font(Fonts.PFC.Families[1], 12);
-            label5.Font = new Font(Fonts.PFC.Families[1], 12);
-            label6.Font = new Font(Fonts.PFC.Families[1], 12);
-            ManagerVer.Font = new Font(Fonts.PFC.Families[1], 12);
-            SpicetifyVer.Font = new Font(Fonts.PFC.Families[1], 12);
-            SpotifyVer.Font = new Font(Fonts.PFC.Families[1], 12);
-            GithubLink.Font = new Font(Fonts.PFC.Families[1], 12);
-            BugReportLink.Font = new Font(Fonts.PFC.Families[1], 12);
-            IconsProviderLink.Font = new Font(Fonts.PFC.Families[1], 12);
+            Title.Font = new Font(Fonts.Pfc.Families[0], 18, FontStyle.Bold);
+            label1.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label2.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label3.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label4.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label5.Font = new Font(Fonts.Pfc.Families[1], 12);
+            label6.Font = new Font(Fonts.Pfc.Families[1], 12);
+            ManagerVer.Font = new Font(Fonts.Pfc.Families[1], 12);
+            SpicetifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
+            SpotifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
+            GithubLink.Font = new Font(Fonts.Pfc.Families[1], 12);
+            BugReportLink.Font = new Font(Fonts.Pfc.Families[1], 12);
+            IconsProviderLink.Font = new Font(Fonts.Pfc.Families[1], 12);
         }
 
         private void LoadColors()

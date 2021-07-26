@@ -21,11 +21,11 @@ namespace SpicetifyManager
 
         private void LoadFonts()
         {
-            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
-            RestartBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            UpgradeBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            BackupBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            ClearBackupBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            Title.Font = new Font(Fonts.Pfc.Families[0], 18, FontStyle.Bold);
+            RestartBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            UpgradeBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            BackupBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            ClearBackupBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
 
         private void LoadColors()

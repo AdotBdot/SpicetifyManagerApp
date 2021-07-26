@@ -9,7 +9,7 @@ namespace SpicetifyManager
     {
         public static class Fonts
         {
-            public static PrivateFontCollection PFC = new PrivateFontCollection();
+            public static PrivateFontCollection Pfc = new PrivateFontCollection();
         }
 
         public static class Colors
@@ -57,9 +57,9 @@ namespace SpicetifyManager
         [STAThread]
         private static void Main()
         {
-            My.Fonts.PFC.AddFontFile(@"..\..\OpenSans-Regular.ttf");
-            My.Fonts.PFC.AddFontFile(@"..\..\OpenSans-SemiBold.ttf");
-            My.Fonts.PFC.AddFontFile(@"..\..\OpenSans-Bold.ttf");
+            My.Fonts.Pfc.AddFontFile(@"..\..\OpenSans-Regular.ttf");
+            My.Fonts.Pfc.AddFontFile(@"..\..\OpenSans-SemiBold.ttf");
+            My.Fonts.Pfc.AddFontFile(@"..\..\OpenSans-Bold.ttf");
 
             string UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
             string CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");

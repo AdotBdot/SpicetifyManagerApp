@@ -9,6 +9,7 @@ namespace SpicetifyManager
             ConfigFilePath = configFile;
         }
 
+        //TODO: Implementation
         public void AutoDetectConfigFile()
         {
         }

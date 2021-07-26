@@ -37,11 +37,11 @@ namespace SpicetifyManager
 
         private void LoadFonts()
         {
-            AboutButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            ManageButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            ReloadButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            SettingsButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            ThemesButton.Font = new Font(Fonts.PFC.Families[1], 14.25f);
+            AboutButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            ManageButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            ReloadButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            SettingsButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            ThemesButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
         }
 
         private void LoadColors()

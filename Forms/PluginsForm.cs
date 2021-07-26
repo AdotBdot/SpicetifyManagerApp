@@ -32,15 +32,15 @@ namespace SpicetifyManager
 
         private void LoadFonts()
         {
-            Title.Font = new Font(Fonts.PFC.Families[0], 18, FontStyle.Bold);
-            label1.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            label2.Font = new Font(Fonts.PFC.Families[1], 14.25f);
-            ExtensionsList.Font = new Font(Fonts.PFC.Families[0], 11.25f);
-            CustomAppsList.Font = new Font(Fonts.PFC.Families[0], 11.25f);
-            SaveBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            ApplyBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            ExtsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
-            CustomAppsFolderBtn.Font = new Font(Fonts.PFC.Families[1], 11.25f);
+            Title.Font = new Font(Fonts.Pfc.Families[0], 18, FontStyle.Bold);
+            label1.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            label2.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
+            ExtensionsList.Font = new Font(Fonts.Pfc.Families[0], 11.25f);
+            CustomAppsList.Font = new Font(Fonts.Pfc.Families[0], 11.25f);
+            SaveBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            ApplyBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            ExtsFolderBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
+            CustomAppsFolderBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
 
         private void LoadColors()
