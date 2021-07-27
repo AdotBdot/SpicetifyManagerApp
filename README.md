@@ -1,6 +1,10 @@
 # Spicetify Manager App
 Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify-cli">spicetify-cli</a> (v2.5.0). Supports Windows.
 
+<p align="left">
+   <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManagerApp.svg"></a>
+</p
+
 ### Features
  - Simple GUI.
  - Autodetection of Themes, Colors Schemes, Extensions and Custom Apps
