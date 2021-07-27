@@ -3,6 +3,7 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
 
 <p align="left">
    <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManagerApp.svg"></a>
+   <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases"><img src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManagerApp/total.svg"></a>
 </p
 
 ### Features
