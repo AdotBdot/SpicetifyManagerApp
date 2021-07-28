@@ -1,5 +1,10 @@
 # Spicetify Manager App
-Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify-cli">spicetify-cli</a> (v2.5.0 or later). Supports Windows.
+Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify-cli">spicetify-cli</a> (v2.5.0). Supports Windows.
+
+<p align="left">
+   <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManagerApp.svg"></a>
+   <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases"><img src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManagerApp/total.svg"></a>
+</p>
 
 ### Features
  - Simple GUI.
@@ -13,7 +18,7 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
  - Color Schemes editor
 
 ### Requirements
- - .NET Framework 4.8 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">here</a>
+ - .NET Framework 4.8 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">here</a>.
 
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
