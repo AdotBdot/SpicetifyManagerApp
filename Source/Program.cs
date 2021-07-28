@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Windows.Forms;
 
 namespace SpicetifyManager
 {
@@ -49,6 +49,7 @@ namespace SpicetifyManager
         }
     }
 
+    //TODO: Version checker
     internal static class Program
     {
         /// <summary>
@@ -57,8 +58,11 @@ namespace SpicetifyManager
         [STAThread]
         private static void Main()
         {
+            //TODO: Load fonts from resource instead of files
             My.Fonts.Pfc.AddFontFile(@"OpenSans-Regular.ttf");
             My.Fonts.Pfc.AddFontFile(@"OpenSans-SemiBold.ttf");
+
+            //TODO: Remove this
             My.Fonts.Pfc.AddFontFile(@"OpenSans-Bold.ttf");
 
             string UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");

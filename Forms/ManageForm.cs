@@ -79,7 +79,7 @@ namespace SpicetifyManager
             _Spicetify.Clear();
         }
 
-        //TODO: Restore Confirmation popup
+        //TODO: Confirmation popup
         private void RestoreBtn_Click(object sender, EventArgs e)
         {
             if(!_Spicetify.DetectSpicetify())

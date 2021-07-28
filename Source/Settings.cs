@@ -101,6 +101,7 @@ namespace SpicetifyManager
         private ConfigFileReader _Reader;
         private ConfigFileWriter _Writer;
 
+        //TODO: unnecessary
         public bool ConfigLoaded;
 
         //Settings
