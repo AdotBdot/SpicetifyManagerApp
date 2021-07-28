@@ -8,6 +8,7 @@ namespace SpicetifyManager
     {
         public Settings(string configFilePath)
         {
+            ConfigLoaded = false;
             _Reader = new ConfigFileReader(configFilePath);
             _Writer = new ConfigFileWriter(configFilePath);
         }
@@ -20,6 +21,8 @@ namespace SpicetifyManager
             ReadPreprocesses();
             ReadAdditionalOptions();
             ReadBackup();
+
+            ConfigLoaded = true;
         }
 
         public void SaveThemes()
@@ -99,6 +102,8 @@ namespace SpicetifyManager
 
         private ConfigFileReader _Reader;
         private ConfigFileWriter _Writer;
+
+        public bool ConfigLoaded;
 
         //Settings
         public string PrefsPath;
