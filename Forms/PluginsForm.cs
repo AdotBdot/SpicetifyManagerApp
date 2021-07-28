@@ -61,6 +61,9 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ExtensionsList.Items.Clear();
             foreach(string Ext in _Spicetify.GetExtensions())
             {

@@ -88,6 +88,9 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             PrefsPathInput.Text = _Settings.PrefsPath;
             OverwriteAssetsChkBox.Checked = _Settings.OverwriteAssets;
             SpotifyPathInput.Text = _Settings.SpotifyPath;
@@ -132,12 +135,18 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ReadUserInput();
             _Settings.SaveSettings();
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ReadUserInput();
             _Settings.SaveSettings();
             _Spicetify.Apply();
@@ -145,6 +154,9 @@ namespace SpicetifyManager
 
         private void ConfigFileBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.OpenConfigFile();
         }
     }

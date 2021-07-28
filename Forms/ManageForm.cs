@@ -49,27 +49,42 @@ namespace SpicetifyManager
 
         private void RestartBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.Restart();
         }
 
         private void UpgradeBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.Upgrade();
         }
 
         private void BackupBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.Backup();
         }
 
         private void ClearBackupBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.Clear();
         }
 
         //TODO: Restore Confirmation popup
         private void RestoreBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.Restore();
         }
     }

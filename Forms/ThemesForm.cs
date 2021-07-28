@@ -61,6 +61,9 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ThemesDropdown.Items.Clear();
             foreach(string Theme in _Spicetify.GetThemes())
             {
@@ -116,12 +119,18 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ReadUserInput();
             _Settings.SaveThemes();
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ReadUserInput();
             _Settings.SaveThemes();
             _Spicetify.Apply();
@@ -129,6 +138,9 @@ namespace SpicetifyManager
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             ReadUserInput();
             _Settings.SaveThemes();
             _Spicetify.Update();
@@ -136,6 +148,9 @@ namespace SpicetifyManager
 
         private void ThemeFolderBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Spicetify.OpenThemeFolder();
         }
     }

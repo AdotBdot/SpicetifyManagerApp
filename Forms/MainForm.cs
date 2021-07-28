@@ -159,7 +159,7 @@ namespace SpicetifyManager
 
         private void WarningIcon_MouseHover(object sender, EventArgs e)
         {
-            WarningToolTip.Show("spicetify.exe not found, restart application", WarningIcon);
+            WarningToolTip.Show("spicetify.exe not found, install spicetify and restart application", WarningIcon);
         }
     }
 }

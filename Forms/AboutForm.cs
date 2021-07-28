@@ -67,7 +67,11 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            ManagerVer.Text = "1.0";
+            ManagerVer.Text = "1.0.0";
+
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             SpicetifyVer.Text = _Spicetify.Version;
             SpotifyVer.Text = _Settings.SpotifyVersion;
         }
