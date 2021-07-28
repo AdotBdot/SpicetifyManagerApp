@@ -8,14 +8,14 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
 
 ### Features
  - Simple GUI.
- - Autodetection of Themes, Colors Schemes, Extensions and Custom Apps
- - Support for spicetify-cli upgrades and backups
+ - Autodetection of Themes, Colors Schemes, Extensions and Custom Apps.
+ - Support for spicetify-cli upgrades and backups.
  - No installation required.
 
 ### Planned Features
- - Installing Spicetify from the app
- - Spotify restore
- - Color Schemes editor
+ - Installing Spicetify from the app.
+ - Spotify restore.
+ - Color Schemes editor.
 
 ### Requirements
  - .NET Framework 4.8 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">here</a>.
