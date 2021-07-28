@@ -67,7 +67,8 @@ namespace SpicetifyManager
             Spicetify Spicetify = new Spicetify(UserDirectory, CliDirectory);
             Settings Settings = new Settings(Spicetify.GetConfigPath());
 
-            Settings.LoadConfig();
+            if(Spicetify.DetectSpicetify())
+                Settings.LoadConfig();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
