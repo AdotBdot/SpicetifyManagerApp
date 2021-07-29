@@ -187,7 +187,6 @@
     <EmbeddedResource Include="Forms\ThemesForm.resx">
       <DependentUpon>ThemesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="OpenSans-Bold.ttf" />
     <None Include="OpenSans-Regular.ttf" />
     <None Include="OpenSans-SemiBold.ttf" />
     <None Include="Properties\Settings.settings">
