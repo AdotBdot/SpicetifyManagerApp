@@ -12,8 +12,10 @@ namespace SpicetifyManager
         {
             _UserDirectory = userDirectory;
             _CliDirectory = cliDirectory;
+
             _SpicetifyDetected = DetectSpicetify();
             Version = ReadVersion();
+
             ListAll();
         }
 
@@ -24,8 +26,6 @@ namespace SpicetifyManager
 
         public void ListAll()
         {
-            if(!_SpicetifyDetected)
-                return;
             ListThemes();
             ListExtensions();
             ListCustomApps();
@@ -73,22 +73,16 @@ namespace SpicetifyManager
 
         public List<string> GetThemes()
         {
-            if(!_SpicetifyDetected)
-                return new List<string>();
-            return _ThemeList;
+            return _Themes;
         }
 
         public List<string> GetExtensions()
         {
-            if(!_SpicetifyDetected)
-                return new List<string>();
             return _Extensions;
         }
 
         public List<string> GetCustomApps()
         {
-            if(!_SpicetifyDetected)
-                return new List<string>();
             return _CustomApps;
         }
 
@@ -139,7 +133,7 @@ namespace SpicetifyManager
 
             Process.Start(new ProcessStartInfo()
             {
-                FileName = _UserDirectory + "config-xpui.ini",
+                FileName = GetConfigPath(),
                 UseShellExecute = true,
             });
         }
@@ -148,7 +142,7 @@ namespace SpicetifyManager
         public string GetConfigPath()
         {
             if(!_SpicetifyDetected)
-                return String.Empty;
+                return string.Empty;
 
             var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-c").Invoke();
 
@@ -238,29 +232,35 @@ namespace SpicetifyManager
         private void ListThemes()
         {
             if(!_SpicetifyDetected)
+            {
+                _Themes = new List<string>();
                 return;
+            }
 
-            _ThemeList = new List<string> {"(none)"};
+            _Themes = new List<string> {"(none)"};
 
             //.spicetify
             string[] UserThemes = Directory.GetDirectories(_UserDirectory + "Themes");
             foreach(string Theme in UserThemes)
             {
-                _ThemeList.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Themes.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
             string[] BuildInThemes = Directory.GetDirectories(_CliDirectory + "Themes");
             foreach(string Theme in BuildInThemes)
             {
-                _ThemeList.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Themes.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
         private void ListExtensions()
         {
             if(!_SpicetifyDetected)
+            {
+                _Extensions = new List<string>();
                 return;
+            }
 
             _Extensions = new List<string>();
 
@@ -282,7 +282,10 @@ namespace SpicetifyManager
         private void ListCustomApps()
         {
             if(!_SpicetifyDetected)
+            {
+                _CustomApps = new List<string>();
                 return;
+            }
 
             _CustomApps = new List<string>();
 
@@ -308,7 +311,7 @@ namespace SpicetifyManager
 
         private List<string> _Extensions;
         private List<string> _CustomApps;
-        private List<string> _ThemeList;
+        private List<string> _Themes;
 
         private readonly string _UserDirectory;
         private readonly string _CliDirectory;
