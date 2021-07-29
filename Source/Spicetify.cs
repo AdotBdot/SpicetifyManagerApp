@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
@@ -144,7 +145,8 @@ namespace SpicetifyManager
             if(!Detected)
                 return string.Empty;
 
-            var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-c").Invoke();
+            Collection<PSObject> Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe")
+                .AddParameter("-c").Invoke();
 
             return Results[0].ToString();
         }
