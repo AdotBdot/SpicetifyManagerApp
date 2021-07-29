@@ -157,22 +157,26 @@ namespace SpicetifyManager
                 return;
 
             string S = _ActiveForm.Name;
-            if(S == "ThemesForm")
+            switch(S)
+            {
+            case "ThemesForm":
             {
                 ThemesForm F = (ThemesForm) _ActiveForm;
                 F.Reload();
+                break;
             }
-
-            if(S == "PluginsForm")
+            case "PluginsForm":
             {
                 PluginsForm F = (PluginsForm) _ActiveForm;
                 F.Reload();
+                break;
             }
-
-            if(S == "SettingsForm")
+            case "SettingsForm":
             {
                 SettingsForm F = (SettingsForm) _ActiveForm;
                 F.Reload();
+                break;
+            }
             }
         }
 
