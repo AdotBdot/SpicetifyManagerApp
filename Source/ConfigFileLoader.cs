@@ -9,11 +9,6 @@ namespace SpicetifyManager
             ConfigFilePath = configFile;
         }
 
-        //TODO: Implementation
-        public void AutoDetectConfigFile()
-        {
-        }
-
         public void LoadFile()
         {
             Lines = File.ReadAllLines(ConfigFilePath);
