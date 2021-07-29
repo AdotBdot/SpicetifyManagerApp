@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpicetifyManagerApp", "SpicetifyManagerApp.csproj", "{032A7255-529E-4645-A47F-4376D8E824D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpicetifyManager", "SpicetifyManager.csproj", "{032A7255-529E-4645-A47F-4376D8E824D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

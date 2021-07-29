@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpicetifyManagerApp.Properties {
+namespace SpicetifyManager.Properties {
     using System;
     
     
