@@ -17,9 +17,6 @@ namespace SpicetifyManager
             LoadColors();
 
             InitControls();
-
-            OpenChildForm(new ThemesForm(settings, spicetify));
-            SetActiveButton(ThemesButton);
         }
 
         private Settings _Settings;
@@ -30,7 +27,11 @@ namespace SpicetifyManager
         private void InitControls()
         {
             if(_Spicetify.DetectSpicetify())
+            {
                 WarningIcon.Hide();
+                OpenChildForm(new ThemesForm(_Settings, _Spicetify));
+                SetActiveButton(ThemesButton);
+            }
             else
                 WarningIcon.Show();
         }
