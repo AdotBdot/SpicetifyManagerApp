@@ -29,8 +29,8 @@ namespace SpicetifyManager
             if(_Spicetify.Detected)
             {
                 WarningIcon.Hide();
-                OpenChildForm(new ThemesForm(_Settings, _Spicetify));
-                SetActiveButton(ThemesButton);
+                // OpenChildForm(new ThemesForm(_Settings, _Spicetify));
+                // SetActiveButton(ThemesButton);
             }
             else
                 WarningIcon.Show();

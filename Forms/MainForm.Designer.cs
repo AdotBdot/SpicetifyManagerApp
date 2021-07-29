@@ -197,7 +197,7 @@ namespace SpicetifyManager
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.ShowIcon = false;
+            this.Text = "Spicetify Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.NavBar.ResumeLayout(false);
             this.ResumeLayout(false);
