@@ -70,7 +70,11 @@ namespace SpicetifyManager
                 ThemesDropdown.Items.Add(Theme);
             }
 
-            ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
+            if(_Settings.CurrentTheme == string.Empty)
+                ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf("(none)")];
+            else
+                ThemesDropdown.SelectedItem =
+                    ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
 
             ColorsDropdown.Items.Clear();
             foreach(string Color in _Spicetify.GetColors(_Settings.CurrentTheme))
@@ -78,7 +82,19 @@ namespace SpicetifyManager
                 ColorsDropdown.Items.Add(Color);
             }
 
-            ColorsDropdown.SelectedItem = ColorsDropdown.Items[ColorsDropdown.Items.IndexOf(_Settings.ColorScheme)];
+            try
+            {
+                ColorsDropdown.SelectedItem = ColorsDropdown.Items[ColorsDropdown.Items.IndexOf(_Settings.ColorScheme)];
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                if(_Spicetify.GetColors(_Settings.CurrentTheme).Count != 0)
+                    ColorsDropdown.SelectedItem = ColorsDropdown.Items[0];
+
+                else
+                    ColorsDropdown.SelectedItem = null;
+            }
         }
 
         private void ReadUserInput()
