@@ -107,36 +107,54 @@ namespace SpicetifyManager
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             OpenChildForm(new SettingsForm(_Settings, _Spicetify));
             SetActiveButton(SettingsButton);
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             OpenChildForm(new AboutForm(_Settings, _Spicetify));
             SetActiveButton(AboutButton);
         }
 
         private void ManageButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             OpenChildForm(new ManageForm(_Spicetify));
             SetActiveButton(ManageButton);
         }
 
         private void PluginsButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             OpenChildForm(new PluginsForm(_Settings, _Spicetify));
             SetActiveButton(PluginsButton);
         }
 
         private void ThemesButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             OpenChildForm(new ThemesForm(_Settings, _Spicetify));
             SetActiveButton(ThemesButton);
         }
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             string S = _ActiveForm.Name;
             if(S == "ThemesForm")
             {
