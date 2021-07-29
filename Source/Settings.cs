@@ -4,23 +4,24 @@ namespace SpicetifyManager
 {
     public class Settings
     {
-        public Settings(string configFilePath)
+        public Settings(Spicetify spicetify)
         {
-            ConfigLoaded = false;
-            _Reader = new ConfigFileReader(configFilePath);
-            _Writer = new ConfigFileWriter(configFilePath);
+            _Spicetify = spicetify;
+            _Reader = new ConfigFileReader(_Spicetify.GetConfigPath());
+            _Writer = new ConfigFileWriter(_Spicetify.GetConfigPath());
         }
 
         public void LoadConfig()
         {
+            if(!_Spicetify.DetectSpicetify())
+                return;
+
             _Reader.LoadFile();
 
             ReadSetting();
             ReadPreprocesses();
             ReadAdditionalOptions();
             ReadBackup();
-
-            ConfigLoaded = true;
         }
 
         public void SaveThemes()
@@ -63,6 +64,7 @@ namespace SpicetifyManager
             _Writer.WriteFile();
         }
 
+
         private void ReadSetting()
         {
             PrefsPath = _Reader.ReadString("prefs_path");
@@ -98,11 +100,11 @@ namespace SpicetifyManager
             SpotifyVersion = _Reader.ReadString("version");
         }
 
+
+        private Spicetify _Spicetify;
         private ConfigFileReader _Reader;
         private ConfigFileWriter _Writer;
 
-        //TODO: unnecessary
-        public bool ConfigLoaded;
 
         //Settings
         public string PrefsPath;
