@@ -85,10 +85,10 @@ namespace SpicetifyManager
             string CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
 
             Spicetify Spicetify = new Spicetify(UserDirectory, CliDirectory);
-            Settings Settings = new Settings(Spicetify.GetConfigPath());
+            Settings Settings = new Settings(Spicetify);
 
-            if(Spicetify.DetectSpicetify())
-                Settings.LoadConfig();
+            Spicetify.ListAll();
+            Settings.LoadConfig();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
