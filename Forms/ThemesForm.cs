@@ -82,19 +82,10 @@ namespace SpicetifyManager
                 ColorsDropdown.Items.Add(Color);
             }
 
-            try
-            {
+            if(_Settings.ColorScheme != string.Empty)
                 ColorsDropdown.SelectedItem = ColorsDropdown.Items[ColorsDropdown.Items.IndexOf(_Settings.ColorScheme)];
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-                if(_Spicetify.GetColors(_Settings.CurrentTheme).Count != 0)
-                    ColorsDropdown.SelectedItem = ColorsDropdown.Items[0];
-
-                else
-                    ColorsDropdown.SelectedItem = null;
-            }
+            else
+                ColorsDropdown.SelectedItem = null;
         }
 
         private void ReadUserInput()
@@ -104,10 +95,10 @@ namespace SpicetifyManager
             else
                 _Settings.CurrentTheme = ThemesDropdown.SelectedItem.ToString();
 
-            if(ColorsDropdown.SelectedItem != null)
-                _Settings.ColorScheme = ColorsDropdown.SelectedItem.ToString();
-            else
+            if(ColorsDropdown.SelectedItem == null)
                 _Settings.ColorScheme = "";
+            else
+                _Settings.ColorScheme = ColorsDropdown.SelectedItem.ToString();
         }
 
 
@@ -125,11 +116,13 @@ namespace SpicetifyManager
                 {
                     ColorsDropdown.Items.Add(Color);
                 }
+
+                ColorsDropdown.SelectedItem = ColorsDropdown.Items[0];
             }
             else //Colors.Count == 0
             {
-                ColorsDropdown.SelectedItem = null;
                 ColorsDropdown.Text = "";
+                ColorsDropdown.SelectedItem = null;
             }
         }
 
