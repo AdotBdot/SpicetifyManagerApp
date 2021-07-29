@@ -26,13 +26,13 @@ namespace SpicetifyManager
 
             private static void LoadFontFromResx(byte[] font)
             {
-                byte[] fontData = font;
-                IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-                System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-                uint dummy = 0;
-                Pfc.AddMemoryFont(fontPtr, font.Length);
-                AddFontMemResourceEx(fontPtr, (uint) font.Length, IntPtr.Zero, ref dummy);
-                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+                byte[] FontData = font;
+                IntPtr FontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(FontData.Length);
+                System.Runtime.InteropServices.Marshal.Copy(FontData, 0, FontPtr, FontData.Length);
+                uint Dummy = 0;
+                Pfc.AddMemoryFont(FontPtr, font.Length);
+                AddFontMemResourceEx(FontPtr, (uint) font.Length, IntPtr.Zero, ref Dummy);
+                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(FontPtr);
             }
         }
 
@@ -82,12 +82,7 @@ namespace SpicetifyManager
         [STAThread]
         private static void Main()
         {
-            //TODO: Load fonts from resource instead of files
             My.Fonts.LoadFonts();
-            //My.Fonts.AddFontFromResource("SpicetifySettingsApp.OpenSans-Regular.ttf");
-            //My.Fonts.AddFontFromResource("SpicetifySettingsApp.OpenSans-SemiBold.ttf");
-            // My.Fonts.Pfc.AddFontFile(@"OpenSans-Regular.ttf");
-            // My.Fonts.Pfc.AddFontFile(@"OpenSans-SemiBold.ttf");
 
             string UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
             string CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
