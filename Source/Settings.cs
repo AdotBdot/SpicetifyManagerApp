@@ -13,7 +13,7 @@ namespace SpicetifyManager
 
         public void LoadConfig()
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             _Reader.LoadFile();

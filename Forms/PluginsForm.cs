@@ -61,7 +61,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ExtensionsList.Items.Clear();
@@ -111,12 +111,18 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.Detected)
+                return;
+
             ReadUserInput();
             _Settings.SavePlugins();
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.Detected)
+                return;
+
             ReadUserInput();
             _Settings.SavePlugins();
             _Spicetify.Apply();
@@ -124,11 +130,17 @@ namespace SpicetifyManager
 
         private void ExtsFolderBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.Detected)
+                return;
+
             _Spicetify.OpenExtensionsFolder();
         }
 
         private void CustomAppsFolderBtn_Click(object sender, EventArgs e)
         {
+            if(!_Spicetify.Detected)
+                return;
+
             _Spicetify.OpenCustomAppsFolder();
         }
     }

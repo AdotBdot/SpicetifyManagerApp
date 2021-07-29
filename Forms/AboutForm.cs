@@ -67,9 +67,9 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            ManagerVer.Text = "1.0.0";
+            ManagerVer.Text = "1.1.0";
 
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             SpicetifyVer.Text = _Spicetify.Version;

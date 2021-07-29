@@ -26,7 +26,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            if(_Spicetify.DetectSpicetify())
+            if(_Spicetify.Detected)
             {
                 WarningIcon.Hide();
                 OpenChildForm(new ThemesForm(_Settings, _Spicetify));
@@ -108,7 +108,7 @@ namespace SpicetifyManager
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             OpenChildForm(new SettingsForm(_Settings, _Spicetify));
@@ -117,7 +117,7 @@ namespace SpicetifyManager
 
         private void AboutButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             OpenChildForm(new AboutForm(_Settings, _Spicetify));
@@ -126,7 +126,7 @@ namespace SpicetifyManager
 
         private void ManageButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             OpenChildForm(new ManageForm(_Spicetify));
@@ -135,7 +135,7 @@ namespace SpicetifyManager
 
         private void PluginsButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             OpenChildForm(new PluginsForm(_Settings, _Spicetify));
@@ -144,7 +144,7 @@ namespace SpicetifyManager
 
         private void ThemesButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             OpenChildForm(new ThemesForm(_Settings, _Spicetify));
@@ -153,7 +153,7 @@ namespace SpicetifyManager
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             string S = _ActiveForm.Name;

@@ -61,7 +61,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ThemesDropdown.Items.Clear();
@@ -119,7 +119,7 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ReadUserInput();
@@ -128,7 +128,7 @@ namespace SpicetifyManager
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ReadUserInput();
@@ -138,7 +138,7 @@ namespace SpicetifyManager
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ReadUserInput();
@@ -148,7 +148,7 @@ namespace SpicetifyManager
 
         private void ThemeFolderBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             _Spicetify.OpenThemeFolder();

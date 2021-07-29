@@ -13,7 +13,7 @@ namespace SpicetifyManager
             _UserDirectory = userDirectory;
             _CliDirectory = cliDirectory;
 
-            _SpicetifyDetected = DetectSpicetify();
+            Detected = DetectSpicetify();
             Version = ReadVersion();
 
             ListAll();
@@ -34,7 +34,7 @@ namespace SpicetifyManager
 
         public List<string> GetColors(string themeName)
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return new List<string>();
 
             string[] Lines;
@@ -89,7 +89,7 @@ namespace SpicetifyManager
 
         public void OpenThemeFolder()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             Process.Start(new ProcessStartInfo()
@@ -102,7 +102,7 @@ namespace SpicetifyManager
 
         public void OpenExtensionsFolder()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             Process.Start(new ProcessStartInfo()
@@ -115,7 +115,7 @@ namespace SpicetifyManager
 
         public void OpenCustomAppsFolder()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             Process.Start(new ProcessStartInfo()
@@ -128,7 +128,7 @@ namespace SpicetifyManager
 
         public void OpenConfigFile()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             Process.Start(new ProcessStartInfo()
@@ -141,7 +141,7 @@ namespace SpicetifyManager
 
         public string GetConfigPath()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return string.Empty;
 
             var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-c").Invoke();
@@ -152,7 +152,7 @@ namespace SpicetifyManager
 
         public void Apply()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("apply").Invoke();
@@ -160,7 +160,7 @@ namespace SpicetifyManager
 
         public void Backup()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("backup").Invoke();
@@ -168,7 +168,7 @@ namespace SpicetifyManager
 
         public void Clear()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("clear").Invoke();
@@ -176,7 +176,7 @@ namespace SpicetifyManager
 
         public void Update()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("update").Invoke();
@@ -184,7 +184,7 @@ namespace SpicetifyManager
 
         public void Restore()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restore").Invoke();
@@ -192,7 +192,7 @@ namespace SpicetifyManager
 
         public void Upgrade()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("upgrade").Invoke();
@@ -200,7 +200,7 @@ namespace SpicetifyManager
 
         public void Restart()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return;
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restart").Invoke();
@@ -209,7 +209,7 @@ namespace SpicetifyManager
 
         public void Install()
         {
-            if(_SpicetifyDetected)
+            if(Detected)
                 return;
 
             //Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression
@@ -221,7 +221,7 @@ namespace SpicetifyManager
 
         private string ReadVersion()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
                 return "0.0.0";
 
             var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-v").Invoke();
@@ -231,7 +231,7 @@ namespace SpicetifyManager
 
         private void ListThemes()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
             {
                 _Themes = new List<string>();
                 return;
@@ -256,7 +256,7 @@ namespace SpicetifyManager
 
         private void ListExtensions()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
             {
                 _Extensions = new List<string>();
                 return;
@@ -281,7 +281,7 @@ namespace SpicetifyManager
 
         private void ListCustomApps()
         {
-            if(!_SpicetifyDetected)
+            if(!Detected)
             {
                 _CustomApps = new List<string>();
                 return;
@@ -307,7 +307,7 @@ namespace SpicetifyManager
 
         public string Version;
 
-        private bool _SpicetifyDetected;
+        public readonly bool Detected;
 
         private List<string> _Extensions;
         private List<string> _CustomApps;

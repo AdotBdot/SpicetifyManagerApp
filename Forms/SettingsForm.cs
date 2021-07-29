@@ -88,7 +88,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             PrefsPathInput.Text = _Settings.PrefsPath;
@@ -135,7 +135,7 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ReadUserInput();
@@ -144,7 +144,7 @@ namespace SpicetifyManager
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             ReadUserInput();
@@ -154,7 +154,7 @@ namespace SpicetifyManager
 
         private void ConfigFileBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.DetectSpicetify())
+            if(!_Spicetify.Detected)
                 return;
 
             _Spicetify.OpenConfigFile();
