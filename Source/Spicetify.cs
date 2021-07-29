@@ -272,7 +272,7 @@ namespace SpicetifyManager
             }
 
             //spicetify-cli
-            string[] BuildInExt = Directory.GetFiles(_UserDirectory + "..\\spicetify-cli\\Extensions");
+            string[] BuildInExt = Directory.GetFiles(_CliDirectory + "Extensions");
             foreach(string Ext in BuildInExt)
             {
                 _Extensions.Add(Ext.Substring(Ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
@@ -297,7 +297,7 @@ namespace SpicetifyManager
             }
 
             //spicetify-cli
-            string[] BuildInApps = Directory.GetDirectories(_UserDirectory + "..\\spicetify-cli\\CustomApps");
+            string[] BuildInApps = Directory.GetDirectories(_CliDirectory + "\\CustomApps");
             foreach(string App in BuildInApps)
             {
                 _CustomApps.Add(App.Substring(App.LastIndexOf("\\", StringComparison.Ordinal) + 1));
