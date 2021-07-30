@@ -151,7 +151,7 @@ namespace SpicetifyManager
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!_Spicetify.Detected || ActiveForm == null)
                 return;
 
             string S = _ActiveForm.Name;
