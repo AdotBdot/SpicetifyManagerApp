@@ -27,9 +27,6 @@ namespace SpicetifyManager
 
         public void ListAll()
         {
-            if(!Detected)
-                return;
-
             ListThemes();
             ListExtensions();
             ListCustomApps();
