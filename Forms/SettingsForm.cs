@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpicetifyManager.My;
 
@@ -149,7 +150,7 @@ namespace SpicetifyManager
 
             ReadUserInput();
             _Settings.SaveSettings();
-            _Spicetify.Apply();
+            Task.Run(() => _Spicetify.Apply());
         }
 
         private void ConfigFileBtn_Click(object sender, EventArgs e)

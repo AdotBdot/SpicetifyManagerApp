@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpicetifyManager.My;
 
@@ -54,7 +55,7 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            _Spicetify.Restart();
+            Task.Run(() => _Spicetify.Restart());
         }
 
         private void UpgradeBtn_Click(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            _Spicetify.Upgrade();
+            Task.Run(() => _Spicetify.Upgrade());
         }
 
         private void BackupBtn_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            _Spicetify.Backup();
+            Task.Run(() => _Spicetify.Backup());
         }
 
         private void ClearBackupBtn_Click(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            _Spicetify.Clear();
+            Task.Run(() => _Spicetify.Clear());
         }
 
         private void RestoreBtn_Click(object sender, EventArgs e)
@@ -90,7 +91,8 @@ namespace SpicetifyManager
 
             if(ConfirmResult == DialogResult.Yes)
             {
-                _Spicetify.Restore();
+                Task.Run(() => _Spicetify.Restore());
+                //  var Result = _Spicetify.Restore().ConfigureAwait(false);
             }
             else
             {

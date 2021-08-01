@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpicetifyManager.My;
 
@@ -142,7 +143,7 @@ namespace SpicetifyManager
 
             ReadUserInput();
             _Settings.SaveThemes();
-            _Spicetify.Apply();
+            Task.Run(() => _Spicetify.Apply());
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace SpicetifyManager
 
             ReadUserInput();
             _Settings.SaveThemes();
-            _Spicetify.Update();
+            Task.Run(() => _Spicetify.Update());
         }
 
         private void ThemeFolderBtn_Click(object sender, EventArgs e)

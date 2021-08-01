@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpicetifyManager.My;
 
@@ -125,7 +126,7 @@ namespace SpicetifyManager
 
             ReadUserInput();
             _Settings.SavePlugins();
-            _Spicetify.Apply();
+            Task.Run(() => _Spicetify.Apply());
         }
 
         private void ExtsFolderBtn_Click(object sender, EventArgs e)
