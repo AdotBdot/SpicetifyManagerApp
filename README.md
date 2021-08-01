@@ -16,6 +16,7 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
  - Installing Spicetify from the app.
  - Spotify restore.
  - Color Schemes editor.
+ - NoControl integration.
 
 ### Requirements
  - .NET Framework 4.8 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">here</a>.
