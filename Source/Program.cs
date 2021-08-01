@@ -7,32 +7,6 @@ namespace SpicetifyManager
 {
     namespace My
     {
-        public static class Fonts
-        {
-            public static PrivateFontCollection Pfc = new PrivateFontCollection();
-
-            public static void LoadFonts()
-            {
-                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_Regular);
-                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_SemiBold);
-            }
-
-            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-            private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-                IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
-            private static void LoadFontFromResx(byte[] font)
-            {
-                byte[] fontData = font;
-                IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-                System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-                uint dummy = 0;
-                Pfc.AddMemoryFont(fontPtr, font.Length);
-                AddFontMemResourceEx(fontPtr, (uint) font.Length, IntPtr.Zero, ref dummy);
-                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-            }
-        }
-
         public static class Colors
         {
             public static Color GetBg(int elevationStep)
@@ -67,6 +41,37 @@ namespace SpicetifyManager
             public static Color Primary = Color.FromArgb(234, 82, 58);
             public static Color TxtLight = SystemColors.ControlLightLight;
             public static Color TxtDark = SystemColors.ControlText;
+        }
+
+        public static class Fonts
+        {
+            public static PrivateFontCollection Pfc = new PrivateFontCollection();
+
+            public static void LoadFonts()
+            {
+                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_Regular);
+                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_SemiBold);
+            }
+
+            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+            private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+                IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
+            private static void LoadFontFromResx(byte[] font)
+            {
+                byte[] fontData = font;
+                IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+                System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+                uint dummy = 0;
+                Pfc.AddMemoryFont(fontPtr, font.Length);
+                AddFontMemResourceEx(fontPtr, (uint) font.Length, IntPtr.Zero, ref dummy);
+                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+            }
+        }
+
+        public static class Version
+        {
+            public static readonly string CurrentVersion = "1.1.1";
         }
     }
 

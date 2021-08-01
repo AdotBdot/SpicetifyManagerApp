@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using SpicetifyManager.My;
+using Version = SpicetifyManager.My.Version;
 
 namespace SpicetifyManager
 {
@@ -67,7 +68,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            ManagerVer.Text = "1.1.0";
+            ManagerVer.Text = Version.CurrentVersion;
 
             if(!_Spicetify.Detected)
                 return;
