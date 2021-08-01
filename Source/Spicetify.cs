@@ -218,13 +218,15 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand("Invoke-WebRequest").AddParameter("-UseBasicParsing")
                 .AddArgument("https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1")
                 .AddCommand("Invoke-Expression").Invoke();
+
+            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").Invoke();
         }
 
 
         private string ReadVersion()
         {
             if(!Detected)
-                return "0.0.0";
+                return "Not detected";
 
             var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-v").Invoke();
 
