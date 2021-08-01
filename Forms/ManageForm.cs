@@ -101,7 +101,6 @@ namespace SpicetifyManager
             if(confirmResult == DialogResult.Yes)
             {
                 Task.Run(() => _Spicetify.Restore());
-                //  var Result = _Spicetify.Restore().ConfigureAwait(false);
             }
             else
             {
