@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
+using System.Windows.Forms;
 
 namespace SpicetifyManager
 {
@@ -173,7 +174,7 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("clear").Invoke();
+            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-q").AddArgument("clear").Invoke();
         }
 
         public void Update()
