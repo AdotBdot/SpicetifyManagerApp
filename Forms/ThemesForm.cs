@@ -74,8 +74,7 @@ namespace SpicetifyManager
             if(_Settings.CurrentTheme == string.Empty)
                 ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf("(none)")];
             else
-                ThemesDropdown.SelectedItem =
-                    ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
+                ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
 
             ColorsDropdown.Items.Clear();
             foreach(string color in _Spicetify.GetColors(_Settings.CurrentTheme))
