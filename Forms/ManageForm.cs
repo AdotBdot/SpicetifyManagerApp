@@ -79,7 +79,16 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            Task.Run(() => _Spicetify.Clear());
+            DialogResult confirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if(confirmResult == DialogResult.Yes)
+            {
+                Task.Run(() => _Spicetify.Clear());
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
         }
 
         private void RestoreBtn_Click(object sender, EventArgs e)
