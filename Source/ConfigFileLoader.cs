@@ -1,20 +1,22 @@
-﻿using System.IO;
+﻿using IniParser;
+using IniParser.Model;
 
 namespace SpicetifyManager
 {
     public class ConfigFileLoader
     {
-        public ConfigFileLoader(string configFile = "")
+        public ConfigFileLoader()
         {
-            ConfigFilePath = configFile;
+            Parser = new FileIniDataParser();
         }
 
-        public void LoadFile()
+        public void LoadFile(string configFile)
         {
-            Lines = File.ReadAllLines(ConfigFilePath);
+            Data = Parser.ReadFile(configFile);
         }
 
         protected string ConfigFilePath;
-        protected string[] Lines;
+        protected FileIniDataParser Parser;
+        protected IniData Data;
     }
 }

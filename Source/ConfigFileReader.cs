@@ -6,14 +6,13 @@ namespace SpicetifyManager
 {
     public class ConfigFileReader : ConfigFileLoader
     {
-        public ConfigFileReader(string configFile = "")
+        public ConfigFileReader()
         {
-            ConfigFilePath = configFile;
         }
 
-        public string ReadString(string name)
+        public string ReadString(string section, string key)
         {
-            foreach(string Line in Lines)
+            /*foreach(string Line in Lines)
             {
                 if(Line.Contains(name))
                 {
@@ -22,25 +21,19 @@ namespace SpicetifyManager
                 }
             }
 
-            return string.Empty;
+            return string.Empty;*/
+            if(!Data[section].ContainsKey(key))
+                return String.Empty;
+            return Data[section][key];
         }
 
-        public string ReadFullString(string name)
+        public bool ReadBool(string section, string key)
         {
-            foreach(string Line in Lines)
-            {
-                if(Line.Contains(name))
-                {
-                    return Line.Substring(Line.IndexOf("= ", StringComparison.Ordinal) + 1).Trim();
-                }
-            }
+            if(!Data[section].ContainsKey(key))
+                return false;
 
-            return string.Empty;
-        }
-
-        public bool ReadBool(string name)
-        {
-            foreach(string Line in Lines)
+            return ReadString(section, key) == "1" ? true : false;
+            /*foreach(string Line in Lines)
             {
                 if(Line.Contains(name))
                 {
@@ -49,12 +42,28 @@ namespace SpicetifyManager
                 }
             }
 
-            return false;
+            return false;*/
         }
 
-        public List<string> ReadList(string name)
+        public List<string> ReadList(string section, string key)
         {
-            foreach(string Line in Lines)
+            if(!Data[section].ContainsKey(key))
+                return new List<string>();
+
+            string L = RemoveWhitespace(ReadString(section, key));
+            List<string> ReturnValue = new List<string>();
+            while(L.Contains("|"))
+            {
+                string Value = L.Substring(0, L.IndexOf("|", StringComparison.Ordinal));
+                ReturnValue.Add(Value);
+                L = L.Replace(Value + "|", string.Empty);
+            }
+
+            ReturnValue.Add(L);
+
+            return ReturnValue;
+
+            /*foreach(string Line in Lines)
             {
                 if(Line.Contains(name))
                 {
@@ -74,7 +83,7 @@ namespace SpicetifyManager
                     return ReturnValue;
                 }
             }
-
+            */
             return new List<string>();
         }
 

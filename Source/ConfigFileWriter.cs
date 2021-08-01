@@ -1,65 +1,47 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 
 namespace SpicetifyManager
 {
     class ConfigFileWriter : ConfigFileLoader
     {
-        public ConfigFileWriter(string configFile = "")
+        public ConfigFileWriter()
         {
-            ConfigFilePath = configFile;
         }
 
-        public void WriteString(string varName, string value)
+        public void WriteString(string section, string key, string value)
         {
-            for(int I = 0; I < Lines.Length; I++)
+            Data[section][key] = value;
+        }
+
+        public void WriteBool(string section, string key, bool value)
+        {
+            Data[section][key] = (value == true ? "1" : "0");
+        }
+
+        public void WriteList(string section, string key, List<string> value)
+        {
+            string S;
+
+            if(value.Count != 0)
             {
-                if(Lines[I].Contains(varName))
+                S = value[0];
+                for(int I = 1; I < value.Count; I++)
                 {
-                    Lines[I] = varName;
-                    Lines[I] += " = ";
-                    Lines[I] += value;
+                    S += "|";
+                    S += value[I];
                 }
             }
-        }
-
-        public void WriteBool(string varName, bool value)
-        {
-            for(int I = 0; I < Lines.Length; I++)
+            else
             {
-                if(Lines[I].Contains(varName))
-                {
-                    Lines[I] = varName + " = " + (value == true ? "1" : "0");
-                }
+                S = string.Empty;
             }
+
+            Data[section][key] = S;
         }
 
-        public void WriteList(string varName, List<string> value)
+        public void WriteFile(string configFile)
         {
-            for(int I = 0; I < Lines.Length; I++)
-            {
-                if(Lines[I].Contains(varName))
-                {
-                    if(value.Count != 0)
-                    {
-                        Lines[I] = varName + " = " + value[0];
-                        for(int J = 1; J < value.Count; J++)
-                        {
-                            Lines[I] += "|";
-                            Lines[I] += value[J];
-                        }
-                    }
-                    else
-                    {
-                        Lines[I] = varName + " = ";
-                    }
-                }
-            }
-        }
-
-        public void WriteFile()
-        {
-            File.WriteAllLines(ConfigFilePath, Lines);
+            Parser.WriteFile(configFile, Data);
         }
     }
 }
