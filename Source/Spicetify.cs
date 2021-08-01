@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
-using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace SpicetifyManager
 {
@@ -153,7 +153,7 @@ namespace SpicetifyManager
         }
 
 
-        public void Apply()
+        public async Task Apply()
         {
             if(!Detected)
                 return;
@@ -161,7 +161,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("apply").Invoke();
         }
 
-        public void Backup()
+        public async Task Backup()
         {
             if(!Detected)
                 return;
@@ -169,7 +169,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("backup").Invoke();
         }
 
-        public void Clear()
+        public async Task Clear()
         {
             if(!Detected)
                 return;
@@ -177,7 +177,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-q").AddArgument("clear").Invoke();
         }
 
-        public void Update()
+        public async Task Update()
         {
             if(!Detected)
                 return;
@@ -185,7 +185,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("update").Invoke();
         }
 
-        public void Restore()
+        public async Task Restore()
         {
             if(!Detected)
                 return;
@@ -193,7 +193,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restore").Invoke();
         }
 
-        public void Upgrade()
+        public async Task Upgrade()
         {
             if(!Detected)
                 return;
@@ -201,7 +201,7 @@ namespace SpicetifyManager
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("upgrade").Invoke();
         }
 
-        public void Restart()
+        public async Task Restart()
         {
             if(!Detected)
                 return;
