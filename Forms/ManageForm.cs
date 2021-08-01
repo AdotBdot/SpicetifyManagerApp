@@ -40,6 +40,8 @@ namespace SpicetifyManager
             BackupBtn.ForeColor = Colors.TxtDark;
             ClearBackupBtn.BackColor = Colors.Primary;
             ClearBackupBtn.ForeColor = Colors.TxtDark;
+            RestoreBtn.BackColor = Colors.Primary;
+            RestoreBtn.ForeColor = Colors.TxtDark;
         }
 
 
@@ -79,13 +81,21 @@ namespace SpicetifyManager
             _Spicetify.Clear();
         }
 
-        //TODO: Confirmation popup
         private void RestoreBtn_Click(object sender, EventArgs e)
         {
             if(!_Spicetify.Detected)
                 return;
 
-            _Spicetify.Restore();
+            DialogResult ConfirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if(ConfirmResult == DialogResult.Yes)
+            {
+                _Spicetify.Restore();
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
         }
     }
 }

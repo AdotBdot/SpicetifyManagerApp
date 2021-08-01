@@ -36,6 +36,7 @@ namespace SpicetifyManager
             this.Image = new System.Windows.Forms.Panel();
             this.BackupBtn = new System.Windows.Forms.Button();
             this.ClearBackupBtn = new System.Windows.Forms.Button();
+            this.RestoreBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title
@@ -54,7 +55,7 @@ namespace SpicetifyManager
             this.RestartBtn.FlatAppearance.BorderSize = 0;
             this.RestartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RestartBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RestartBtn.Location = new System.Drawing.Point(23, 64);
+            this.RestartBtn.Location = new System.Drawing.Point(21, 111);
             this.RestartBtn.Margin = new System.Windows.Forms.Padding(7);
             this.RestartBtn.Name = "RestartBtn";
             this.RestartBtn.Size = new System.Drawing.Size(157, 38);
@@ -68,7 +69,7 @@ namespace SpicetifyManager
             this.UpgradeBtn.FlatAppearance.BorderSize = 0;
             this.UpgradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpgradeBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UpgradeBtn.Location = new System.Drawing.Point(23, 116);
+            this.UpgradeBtn.Location = new System.Drawing.Point(21, 59);
             this.UpgradeBtn.Margin = new System.Windows.Forms.Padding(7);
             this.UpgradeBtn.Name = "UpgradeBtn";
             this.UpgradeBtn.Size = new System.Drawing.Size(157, 38);
@@ -91,7 +92,7 @@ namespace SpicetifyManager
             this.BackupBtn.FlatAppearance.BorderSize = 0;
             this.BackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackupBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BackupBtn.Location = new System.Drawing.Point(23, 168);
+            this.BackupBtn.Location = new System.Drawing.Point(21, 163);
             this.BackupBtn.Margin = new System.Windows.Forms.Padding(7);
             this.BackupBtn.Name = "BackupBtn";
             this.BackupBtn.Size = new System.Drawing.Size(157, 38);
@@ -105,7 +106,7 @@ namespace SpicetifyManager
             this.ClearBackupBtn.FlatAppearance.BorderSize = 0;
             this.ClearBackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearBackupBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ClearBackupBtn.Location = new System.Drawing.Point(23, 220);
+            this.ClearBackupBtn.Location = new System.Drawing.Point(21, 215);
             this.ClearBackupBtn.Margin = new System.Windows.Forms.Padding(7);
             this.ClearBackupBtn.Name = "ClearBackupBtn";
             this.ClearBackupBtn.Size = new System.Drawing.Size(157, 38);
@@ -114,11 +115,26 @@ namespace SpicetifyManager
             this.ClearBackupBtn.UseVisualStyleBackColor = true;
             this.ClearBackupBtn.Click += new System.EventHandler(this.ClearBackupBtn_Click);
             // 
+            // RestoreBtn
+            // 
+            this.RestoreBtn.FlatAppearance.BorderSize = 0;
+            this.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestoreBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RestoreBtn.Location = new System.Drawing.Point(21, 267);
+            this.RestoreBtn.Margin = new System.Windows.Forms.Padding(7);
+            this.RestoreBtn.Name = "RestoreBtn";
+            this.RestoreBtn.Size = new System.Drawing.Size(157, 38);
+            this.RestoreBtn.TabIndex = 52;
+            this.RestoreBtn.Text = "Restore";
+            this.RestoreBtn.UseVisualStyleBackColor = true;
+            this.RestoreBtn.Click += new System.EventHandler(this.RestoreBtn_Click);
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.RestoreBtn);
             this.Controls.Add(this.ClearBackupBtn);
             this.Controls.Add(this.BackupBtn);
             this.Controls.Add(this.Image);
@@ -143,5 +159,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Panel Image;
         private System.Windows.Forms.Button BackupBtn;
         private System.Windows.Forms.Button ClearBackupBtn;
+        private System.Windows.Forms.Button RestoreBtn;
     }
 }
