@@ -85,10 +85,6 @@ namespace SpicetifyManager
             {
                 Task.Run(() => _Spicetify.Clear());
             }
-            else
-            {
-                // If 'No', do something here.
-            }
         }
 
         private void RestoreBtn_Click(object sender, EventArgs e)
@@ -101,10 +97,6 @@ namespace SpicetifyManager
             if(confirmResult == DialogResult.Yes)
             {
                 Task.Run(() => _Spicetify.Restore());
-            }
-            else
-            {
-                // If 'No', do something here.
             }
         }
     }
