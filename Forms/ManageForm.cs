@@ -87,9 +87,9 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            DialogResult ConfirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult confirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
 
-            if(ConfirmResult == DialogResult.Yes)
+            if(confirmResult == DialogResult.Yes)
             {
                 Task.Run(() => _Spicetify.Restore());
                 //  var Result = _Spicetify.Restore().ConfigureAwait(false);

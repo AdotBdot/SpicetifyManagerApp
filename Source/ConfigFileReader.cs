@@ -12,18 +12,8 @@ namespace SpicetifyManager
 
         public string ReadString(string section, string key)
         {
-            /*foreach(string Line in Lines)
-            {
-                if(Line.Contains(name))
-                {
-                    string L = RemoveWhitespace(Line);
-                    return L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1);
-                }
-            }
-
-            return string.Empty;*/
             if(!Data[section].ContainsKey(key))
-                return String.Empty;
+                return string.Empty;
             return Data[section][key];
         }
 
@@ -33,16 +23,6 @@ namespace SpicetifyManager
                 return false;
 
             return ReadString(section, key) == "1" ? true : false;
-            /*foreach(string Line in Lines)
-            {
-                if(Line.Contains(name))
-                {
-                    string L = RemoveWhitespace(Line);
-                    return L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1) == "1" ? true : false;
-                }
-            }
-
-            return false;*/
         }
 
         public List<string> ReadList(string section, string key)
@@ -50,41 +30,19 @@ namespace SpicetifyManager
             if(!Data[section].ContainsKey(key))
                 return new List<string>();
 
-            string L = RemoveWhitespace(ReadString(section, key));
-            List<string> ReturnValue = new List<string>();
-            while(L.Contains("|"))
+            string l = RemoveWhitespace(ReadString(section, key));
+            List<string> returnValue = new List<string>();
+
+            while(l.Contains("|"))
             {
-                string Value = L.Substring(0, L.IndexOf("|", StringComparison.Ordinal));
-                ReturnValue.Add(Value);
-                L = L.Replace(Value + "|", string.Empty);
+                string value = l.Substring(0, l.IndexOf("|", StringComparison.Ordinal));
+                returnValue.Add(value);
+                l = l.Replace(value + "|", string.Empty);
             }
 
-            ReturnValue.Add(L);
+            returnValue.Add(l);
 
-            return ReturnValue;
-
-            /*foreach(string Line in Lines)
-            {
-                if(Line.Contains(name))
-                {
-                    string L = RemoveWhitespace(Line);
-                    L = L.Substring(L.IndexOf("=", StringComparison.Ordinal) + 1);
-                    List<string> ReturnValue = new List<string>();
-
-                    while(L.Contains("|"))
-                    {
-                        string Value = L.Substring(0, L.IndexOf("|", StringComparison.Ordinal));
-                        ReturnValue.Add(Value);
-                        L = L.Replace(Value + "|", string.Empty);
-                    }
-
-                    ReturnValue.Add(L);
-
-                    return ReturnValue;
-                }
-            }
-            */
-            return new List<string>();
+            return returnValue;
         }
 
         private string RemoveWhitespace(string input)

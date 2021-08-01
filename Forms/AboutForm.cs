@@ -83,20 +83,20 @@ namespace SpicetifyManager
 
         private void GithubLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo SInfo = new ProcessStartInfo("https://github.com/AdotBdot/SpicetifyManagerApp");
-            Process.Start(SInfo);
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/AdotBdot/SpicetifyManagerApp");
+            Process.Start(sInfo);
         }
 
         private void BugReportLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo SInfo = new ProcessStartInfo("https://github.com/AdotBdot/SpicetifyManagerApp/issues");
-            Process.Start(SInfo);
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/AdotBdot/SpicetifyManagerApp/issues");
+            Process.Start(sInfo);
         }
 
         private void IconsProviderLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo SInfo = new ProcessStartInfo("https://www.flaticon.com/");
-            Process.Start(SInfo);
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://www.flaticon.com/");
+            Process.Start(sInfo);
         }
     }
 }

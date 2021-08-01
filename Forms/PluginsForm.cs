@@ -66,43 +66,43 @@ namespace SpicetifyManager
                 return;
 
             ExtensionsList.Items.Clear();
-            foreach(string Ext in _Spicetify.GetExtensions())
+            foreach(string ext in _Spicetify.GetExtensions())
             {
-                if(_Settings.ExtensionsList.Contains(Ext))
-                    ExtensionsList.Items.Add(Ext, CheckState.Checked);
+                if(_Settings.ExtensionsList.Contains(ext))
+                    ExtensionsList.Items.Add(ext, CheckState.Checked);
                 else
-                    ExtensionsList.Items.Add(Ext, CheckState.Unchecked);
+                    ExtensionsList.Items.Add(ext, CheckState.Unchecked);
             }
 
             CustomAppsList.Items.Clear();
-            foreach(string App in _Spicetify.GetCustomApps())
+            foreach(string app in _Spicetify.GetCustomApps())
             {
-                if(_Settings.CustomAppsList.Contains(App))
-                    CustomAppsList.Items.Add(App, CheckState.Checked);
+                if(_Settings.CustomAppsList.Contains(app))
+                    CustomAppsList.Items.Add(app, CheckState.Checked);
                 else
-                    CustomAppsList.Items.Add(App, CheckState.Unchecked);
+                    CustomAppsList.Items.Add(app, CheckState.Unchecked);
             }
         }
 
         private void ReadUserInput()
         {
-            var CheckedExts = ExtensionsList.CheckedItems;
-            List<string> NewExtsList = new List<string>();
-            foreach(var Item in CheckedExts)
+            var checkedExts = ExtensionsList.CheckedItems;
+            List<string> newExtsList = new List<string>();
+            foreach(var item in checkedExts)
             {
-                NewExtsList.Add(Item.ToString());
+                newExtsList.Add(item.ToString());
             }
 
-            _Settings.ExtensionsList = NewExtsList;
+            _Settings.ExtensionsList = newExtsList;
 
-            var CheckedApps = CustomAppsList.CheckedItems;
-            List<string> NewAppsList = new List<string>();
-            foreach(var Item in CheckedApps)
+            var checkedApps = CustomAppsList.CheckedItems;
+            List<string> newAppsList = new List<string>();
+            foreach(var item in checkedApps)
             {
-                NewAppsList.Add(Item.ToString());
+                newAppsList.Add(item.ToString());
             }
 
-            _Settings.CustomAppsList = NewAppsList;
+            _Settings.CustomAppsList = newAppsList;
         }
 
 

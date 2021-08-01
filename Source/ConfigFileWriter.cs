@@ -20,23 +20,23 @@ namespace SpicetifyManager
 
         public void WriteList(string section, string key, List<string> value)
         {
-            string S;
+            string s;
 
             if(value.Count != 0)
             {
-                S = value[0];
-                for(int I = 1; I < value.Count; I++)
+                s = value[0];
+                for(int i = 1; i < value.Count; i++)
                 {
-                    S += "|";
-                    S += value[I];
+                    s += "|";
+                    s += value[i];
                 }
             }
             else
             {
-                S = string.Empty;
+                s = string.Empty;
             }
 
-            Data[section][key] = S;
+            Data[section][key] = s;
         }
 
         public void WriteFile(string configFile)

@@ -39,38 +39,38 @@ namespace SpicetifyManager
             if(!Detected)
                 return new List<string>();
 
-            string[] Lines;
-            List<string> ReturnValue = new List<string>();
+            string[] lines;
+            List<string> returnValue = new List<string>();
             try
             {
-                Lines = File.ReadAllLines(_UserDirectory + "Themes\\" + themeName + "\\color.ini");
+                lines = File.ReadAllLines(_UserDirectory + "Themes\\" + themeName + "\\color.ini");
             }
-            catch(Exception E)
+            catch(Exception e)
             {
                 try
                 {
-                    Lines = File.ReadAllLines(
+                    lines = File.ReadAllLines(
                         _UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
                 }
-                catch(Exception Exception)
+                catch(Exception exception)
                 {
-                    Console.WriteLine(E);
-                    Console.WriteLine(Exception);
-                    return ReturnValue;
+                    Console.WriteLine(e);
+                    Console.WriteLine(exception);
+                    return returnValue;
                 }
             }
 
-            foreach(string Line in Lines)
+            foreach(string line in lines)
             {
-                if(Line.StartsWith("["))
+                if(line.StartsWith("["))
                 {
-                    string Color = Line;
-                    Color = Color.Replace("[", "").Replace("]", "");
-                    ReturnValue.Add(Color);
+                    string color = line;
+                    color = color.Replace("[", "").Replace("]", "");
+                    returnValue.Add(color);
                 }
             }
 
-            return ReturnValue;
+            return returnValue;
         }
 
         public List<string> GetThemes()
@@ -146,10 +146,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return string.Empty;
 
-            Collection<PSObject> Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe")
+            Collection<PSObject> results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe")
                 .AddParameter("-c").Invoke();
 
-            return Results[0].ToString();
+            return results[0].ToString();
         }
 
 
@@ -229,9 +229,9 @@ namespace SpicetifyManager
             if(!Detected)
                 return "Not detected";
 
-            var Results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-v").Invoke();
+            var results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-v").Invoke();
 
-            return Results[0].ToString();
+            return results[0].ToString();
         }
 
         private void ListThemes()
@@ -245,17 +245,17 @@ namespace SpicetifyManager
             _Themes = new List<string> {"(none)"};
 
             //.spicetify
-            string[] UserThemes = Directory.GetDirectories(_UserDirectory + "Themes");
-            foreach(string Theme in UserThemes)
+            string[] userThemes = Directory.GetDirectories(_UserDirectory + "Themes");
+            foreach(string theme in userThemes)
             {
-                _Themes.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Themes.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] BuildInThemes = Directory.GetDirectories(_CliDirectory + "Themes");
-            foreach(string Theme in BuildInThemes)
+            string[] buildInThemes = Directory.GetDirectories(_CliDirectory + "Themes");
+            foreach(string theme in buildInThemes)
             {
-                _Themes.Add(Theme.Substring(Theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Themes.Add(theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
@@ -270,17 +270,17 @@ namespace SpicetifyManager
             _Extensions = new List<string>();
 
             //.spicetify
-            string[] UserExt = Directory.GetFiles(_UserDirectory + "Extensions");
-            foreach(string Ext in UserExt)
+            string[] userExt = Directory.GetFiles(_UserDirectory + "Extensions");
+            foreach(string ext in userExt)
             {
-                _Extensions.Add(Ext.Substring(Ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] BuildInExt = Directory.GetFiles(_CliDirectory + "Extensions");
-            foreach(string Ext in BuildInExt)
+            string[] buildInExt = Directory.GetFiles(_CliDirectory + "Extensions");
+            foreach(string ext in buildInExt)
             {
-                _Extensions.Add(Ext.Substring(Ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _Extensions.Add(ext.Substring(ext.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 
@@ -295,17 +295,17 @@ namespace SpicetifyManager
             _CustomApps = new List<string>();
 
             //.spicetify
-            string[] UserApps = Directory.GetDirectories(_UserDirectory + "CustomApps");
-            foreach(string App in UserApps)
+            string[] userApps = Directory.GetDirectories(_UserDirectory + "CustomApps");
+            foreach(string app in userApps)
             {
-                _CustomApps.Add(App.Substring(App.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
 
             //spicetify-cli
-            string[] BuildInApps = Directory.GetDirectories(_CliDirectory + "\\CustomApps");
-            foreach(string App in BuildInApps)
+            string[] buildInApps = Directory.GetDirectories(_CliDirectory + "\\CustomApps");
+            foreach(string app in buildInApps)
             {
-                _CustomApps.Add(App.Substring(App.LastIndexOf("\\", StringComparison.Ordinal) + 1));
+                _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
         }
 

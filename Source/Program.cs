@@ -23,13 +23,13 @@ namespace SpicetifyManager
 
             private static void LoadFontFromResx(byte[] font)
             {
-                byte[] FontData = font;
-                IntPtr FontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(FontData.Length);
-                System.Runtime.InteropServices.Marshal.Copy(FontData, 0, FontPtr, FontData.Length);
-                uint Dummy = 0;
-                Pfc.AddMemoryFont(FontPtr, font.Length);
-                AddFontMemResourceEx(FontPtr, (uint) font.Length, IntPtr.Zero, ref Dummy);
-                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(FontPtr);
+                byte[] fontData = font;
+                IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+                System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+                uint dummy = 0;
+                Pfc.AddMemoryFont(fontPtr, font.Length);
+                AddFontMemResourceEx(fontPtr, (uint) font.Length, IntPtr.Zero, ref dummy);
+                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             }
         }
 
@@ -81,18 +81,18 @@ namespace SpicetifyManager
         {
             My.Fonts.LoadFonts();
 
-            string UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
-            string CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
+            string userDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
+            string cliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
 
-            Spicetify Spicetify = new Spicetify(UserDirectory, CliDirectory);
-            Settings Settings = new Settings(Spicetify);
+            Spicetify spicetify = new Spicetify(userDirectory, cliDirectory);
+            Settings settings = new Settings(spicetify);
 
-            Spicetify.ListAll();
-            Settings.LoadConfig();
+            spicetify.ListAll();
+            settings.LoadConfig();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(Settings, Spicetify));
+            Application.Run(new MainForm(settings, spicetify));
         }
     }
 }

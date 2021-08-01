@@ -15,7 +15,6 @@ namespace SpicetifyManager
             Data = Parser.ReadFile(configFile);
         }
 
-        protected string ConfigFilePath;
         protected FileIniDataParser Parser;
         protected IniData Data;
     }

@@ -66,9 +66,9 @@ namespace SpicetifyManager
                 return;
 
             ThemesDropdown.Items.Clear();
-            foreach(string Theme in _Spicetify.GetThemes())
+            foreach(string theme in _Spicetify.GetThemes())
             {
-                ThemesDropdown.Items.Add(Theme);
+                ThemesDropdown.Items.Add(theme);
             }
 
             if(_Settings.CurrentTheme == string.Empty)
@@ -78,9 +78,9 @@ namespace SpicetifyManager
                     ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
 
             ColorsDropdown.Items.Clear();
-            foreach(string Color in _Spicetify.GetColors(_Settings.CurrentTheme))
+            foreach(string color in _Spicetify.GetColors(_Settings.CurrentTheme))
             {
-                ColorsDropdown.Items.Add(Color);
+                ColorsDropdown.Items.Add(color);
             }
 
             if(_Settings.ColorScheme != string.Empty)
@@ -110,12 +110,12 @@ namespace SpicetifyManager
         private void CurrentThemeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColorsDropdown.Items.Clear();
-            List<string> Colors = _Spicetify.GetColors(ThemesDropdown.SelectedItem.ToString());
-            if(Colors.Count != 0)
+            List<string> colors = _Spicetify.GetColors(ThemesDropdown.SelectedItem.ToString());
+            if(colors.Count != 0)
             {
-                foreach(string Color in Colors)
+                foreach(string color in colors)
                 {
-                    ColorsDropdown.Items.Add(Color);
+                    ColorsDropdown.Items.Add(color);
                 }
 
                 ColorsDropdown.SelectedItem = ColorsDropdown.Items[0];
