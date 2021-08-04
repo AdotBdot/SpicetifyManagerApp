@@ -82,7 +82,7 @@ namespace SpicetifyManager
                 return tags[0].Name == CurrentVersion ? "You are up to date." : "Version " + tags[0].Name + " available.";
             }
 
-            public static readonly string CurrentVersion = "v1.1.0";
+            public static readonly string CurrentVersion = "v1.2.0";
         }
     }
 
