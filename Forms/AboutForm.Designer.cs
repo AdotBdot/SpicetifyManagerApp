@@ -40,11 +40,12 @@ namespace SpicetifyManager
             this.Image = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.GithubLink = new System.Windows.Forms.LinkLabel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BugReportLink = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.IconsProviderLink = new System.Windows.Forms.LinkLabel();
+            this.VersionCheckBtn = new System.Windows.Forms.Button();
+            this.VersionCheckLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -154,10 +155,6 @@ namespace SpicetifyManager
             this.GithubLink.Text = "github.com/AdotBdot/SpicetifyManagerApp";
             this.GithubLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GithubLink_LinkClicked);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // BugReportLink
             // 
             this.BugReportLink.AutoSize = true;
@@ -204,11 +201,36 @@ namespace SpicetifyManager
             this.IconsProviderLink.Text = "Freepik";
             this.IconsProviderLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.IconsProviderLink_LinkClicked);
             // 
+            // VersionCheckBtn
+            // 
+            this.VersionCheckBtn.FlatAppearance.BorderSize = 0;
+            this.VersionCheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VersionCheckBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VersionCheckBtn.Location = new System.Drawing.Point(256, 58);
+            this.VersionCheckBtn.Margin = new System.Windows.Forms.Padding(7);
+            this.VersionCheckBtn.Name = "VersionCheckBtn";
+            this.VersionCheckBtn.Size = new System.Drawing.Size(74, 30);
+            this.VersionCheckBtn.TabIndex = 62;
+            this.VersionCheckBtn.Text = "Check";
+            this.VersionCheckBtn.UseVisualStyleBackColor = true;
+            this.VersionCheckBtn.Click += new System.EventHandler(this.VersionCheckBtn_Click);
+            // 
+            // VersionCheckLabel
+            // 
+            this.VersionCheckLabel.AutoSize = true;
+            this.VersionCheckLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.VersionCheckLabel.Location = new System.Drawing.Point(340, 62);
+            this.VersionCheckLabel.Name = "VersionCheckLabel";
+            this.VersionCheckLabel.Size = new System.Drawing.Size(0, 20);
+            this.VersionCheckLabel.TabIndex = 63;
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.VersionCheckLabel);
+            this.Controls.Add(this.VersionCheckBtn);
             this.Controls.Add(this.IconsProviderLink);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.BugReportLink);
@@ -245,10 +267,11 @@ namespace SpicetifyManager
         private System.Windows.Forms.Panel Image;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel GithubLink;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.LinkLabel BugReportLink;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel IconsProviderLink;
+        private System.Windows.Forms.Button VersionCheckBtn;
+        private System.Windows.Forms.Label VersionCheckLabel;
     }
 }

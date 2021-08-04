@@ -34,6 +34,8 @@ namespace SpicetifyManager
             label4.Font = new Font(Fonts.Pfc.Families[1], 12);
             label5.Font = new Font(Fonts.Pfc.Families[1], 12);
             label6.Font = new Font(Fonts.Pfc.Families[1], 12);
+            VersionCheckLabel.Font = new Font(Fonts.Pfc.Families[1], 11);
+            VersionCheckBtn.Font = new Font(Fonts.Pfc.Families[1], 10);
             ManagerVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpicetifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpotifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
@@ -52,6 +54,9 @@ namespace SpicetifyManager
             label4.ForeColor = Colors.TxtLight;
             label5.ForeColor = Colors.TxtLight;
             label6.ForeColor = Colors.TxtLight;
+            VersionCheckLabel.ForeColor = Colors.TxtLight;
+            VersionCheckBtn.ForeColor = Colors.TxtDark;
+            VersionCheckBtn.BackColor = Colors.Primary;
             ManagerVer.ForeColor = Colors.TxtLight;
             ManagerVer.BackColor = Colors.GetBg(1);
             SpicetifyVer.ForeColor = Colors.TxtLight;
@@ -79,7 +84,6 @@ namespace SpicetifyManager
                 SpotifyVer.Text = _Settings.SpotifyVersion;
             else
                 SpotifyVer.Text = "0.0.0";
-
         }
 
 
@@ -103,6 +107,12 @@ namespace SpicetifyManager
         {
             ProcessStartInfo sInfo = new ProcessStartInfo("https://www.flaticon.com/");
             Process.Start(sInfo);
+        }
+
+        private async void VersionCheckBtn_Click(object sender, EventArgs e)
+        {
+            var text = await Version.GetVerCheckString();
+            VersionCheckLabel.Text = text;
         }
     }
 }
