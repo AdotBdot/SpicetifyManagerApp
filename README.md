@@ -9,12 +9,11 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
 ### Features
  - Simple GUI.
  - Autodetection of Themes, Colors Schemes, Extensions and Custom Apps.
- - Support for spicetify-cli upgrades and backups.
+ - Support for spicetify-cli upgrade, Spotify restore and backups.
  - Portable, no installation required.
 
 ### Planned Features
  - Installing Spicetify from the app.
- - Spotify restore.
  - Color Schemes editor.
  - NoControl integration.
 
