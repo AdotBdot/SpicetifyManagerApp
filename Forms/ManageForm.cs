@@ -79,7 +79,7 @@ namespace SpicetifyManager
             if(!_Spicetify.Detected)
                 return;
 
-            DialogResult confirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult confirmResult = MessageBox.Show("Are you sure to clear backup?", "Confirmation", MessageBoxButtons.YesNo);
 
             if(confirmResult == DialogResult.Yes)
             {
