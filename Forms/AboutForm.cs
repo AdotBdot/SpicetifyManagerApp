@@ -74,7 +74,12 @@ namespace SpicetifyManager
                 return;
 
             SpicetifyVer.Text = _Spicetify.Version;
-            SpotifyVer.Text = _Settings.SpotifyVersion;
+
+            if(_Settings.SpotifyVersion != string.Empty)
+                SpotifyVer.Text = _Settings.SpotifyVersion;
+            else
+                SpotifyVer.Text = "0.0.0";
+
         }
 
 
