@@ -18,7 +18,7 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
  - NoControl integration.
 
 ### Requirements
- - .NET Framework 4.8 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">here</a>.
+ - .NET Framework 4.7.2 Runtime. Can be downloaded <a href="dotnet.microsoft.com/download/dotnet-framework/net472">here</a>.
 
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
