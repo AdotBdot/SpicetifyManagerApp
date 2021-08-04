@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Windows.Forms;
+using System.Threading.Tasks;
+using Octokit;
+using Application = System.Windows.Forms.Application;
 
 namespace SpicetifyManager
 {
@@ -71,11 +73,19 @@ namespace SpicetifyManager
 
         public static class Version
         {
-            public static readonly string CurrentVersion = "1.1.1";
+            public static async Task<string> GetVerCheckString()
+            {
+                GitHubClient git = new GitHubClient(new ProductHeaderValue("SpicetifyManager"));
+                var repo = await git.Repository.Get("AdotBdot", "SpicetifyManagerApp");
+                var tags = await git.Repository.GetAllTags(repo.Id);
+
+                return tags[0].Name == CurrentVersion ? "You are up to date." : "Version " + tags[0].Name + " available.";
+            }
+
+            public static readonly string CurrentVersion = "v1.1.0";
         }
     }
 
-    //TODO: Version checker
     internal static class Program
     {
         /// <summary>
