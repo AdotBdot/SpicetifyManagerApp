@@ -151,7 +151,7 @@ namespace SpicetifyManager
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected || ActiveForm == null)
+            if(!_Spicetify.Detected || _ActiveForm == null)
                 return;
 
             string s = _ActiveForm.Name;
@@ -175,6 +175,8 @@ namespace SpicetifyManager
                 f.Reload();
                 break;
             }
+            default:
+                break;
             }
         }
 
