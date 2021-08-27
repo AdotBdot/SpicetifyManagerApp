@@ -104,7 +104,7 @@ namespace SpicetifyManager
         [STAThread]
         private static void Main()
         {
-            ShowWindow(GetConsoleWindow(), SW_HIDE);
+            //ShowWindow(GetConsoleWindow(), SW_HIDE);
 
             My.Fonts.LoadFonts();
 
