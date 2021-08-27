@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using SpicetifyManager.My;
+using static SpicetifyManager.My;
 
 namespace SpicetifyManager
 {

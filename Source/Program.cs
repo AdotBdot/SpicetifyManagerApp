@@ -8,7 +8,7 @@ using Application = System.Windows.Forms.Application;
 
 namespace SpicetifyManager
 {
-    namespace My
+    class My
     {
         public static class Colors
         {
