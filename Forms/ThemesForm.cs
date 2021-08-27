@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SpicetifyManager.My;
+using SpicetifyManager.My;
 
 namespace SpicetifyManager
 {

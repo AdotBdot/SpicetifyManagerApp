@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using static SpicetifyManager.My;
+using SpicetifyManager.My;
 using Version = SpicetifyManager.My.Version;
 
 namespace SpicetifyManager
