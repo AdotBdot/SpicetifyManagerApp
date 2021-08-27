@@ -158,7 +158,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("apply").Invoke();
+            Console.WriteLine("Applying...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("apply").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Backup()
@@ -166,7 +169,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("backup").Invoke();
+            Console.WriteLine("Backuping...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("backup").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Clear()
@@ -174,7 +180,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-q").AddArgument("clear").Invoke();
+            Console.WriteLine("Clearing Backup...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-q").AddArgument("clear").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Update()
@@ -182,7 +191,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("update").Invoke();
+            Console.WriteLine("Updating...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("update").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Restore()
@@ -190,7 +202,11 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restore").Invoke();
+
+            Console.WriteLine("Restoring Spotify...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restore").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Upgrade()
@@ -198,7 +214,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("upgrade").Invoke();
+            Console.WriteLine("Upgrading Spicetify...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("upgrade").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
         public async Task Restart()
@@ -206,7 +225,10 @@ namespace SpicetifyManager
             if(!Detected)
                 return;
 
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restart").Invoke();
+            Console.WriteLine("Restarting Spotify...");
+            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restart").Invoke();
+
+            PrintInvokeResponse(response);
         }
 
 
@@ -307,6 +329,24 @@ namespace SpicetifyManager
             {
                 _CustomApps.Add(app.Substring(app.LastIndexOf("\\", StringComparison.Ordinal) + 1));
             }
+        }
+
+        private void PrintInvokeResponse(Collection<PSObject> responseCollection)
+        {
+            foreach(var psObject in responseCollection)
+            {
+                Console.WriteLine(ClearEscapeSeq(psObject.ToString()));
+            }
+        }
+
+        private string ClearEscapeSeq(string text)
+        {
+            while(text.Contains("\u001b"))
+            {
+                text = text.Remove(text.IndexOf("\u001b"), text.IndexOf('m', text.IndexOf("\u001b")) - text.IndexOf("\u001b") + 1);
+            }
+
+            return text;
         }
 
 
