@@ -60,6 +60,7 @@ namespace SpicetifyManager
             ManageButton.ForeColor = Colors.TxtLight;
             ReloadButton.BackColor = Colors.GetBg(4);
             ReloadButton.ForeColor = Colors.TxtLight;
+            ToogleConsoleBtn.BackColor = Colors.GetBg(4);
             WarningIcon.BackColor = Colors.GetBg(4);
         }
 
