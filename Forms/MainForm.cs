@@ -195,5 +195,10 @@ namespace SpicetifyManager
         {
             ReloadTooltip.Show("Reload", ReloadButton);
         }
+
+        private void ToogleConsoleBtn_Click(object sender, EventArgs e)
+        {
+            SpicetifyManager.Program.ToogleConsole();
+        }
     }
 }

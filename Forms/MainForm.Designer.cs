@@ -197,10 +197,12 @@ namespace SpicetifyManager
             this.ToogleConsoleBtn.FlatAppearance.BorderSize = 0;
             this.ToogleConsoleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToogleConsoleBtn.Location = new System.Drawing.Point(60, 414);
+            this.ToogleConsoleBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.ToogleConsoleBtn.Name = "ToogleConsoleBtn";
             this.ToogleConsoleBtn.Size = new System.Drawing.Size(40, 40);
             this.ToogleConsoleBtn.TabIndex = 6;
             this.ToogleConsoleBtn.UseVisualStyleBackColor = false;
+            this.ToogleConsoleBtn.Click += new System.EventHandler(this.ToogleConsoleBtn_Click);
             this.ToogleConsoleBtn.MouseHover += new System.EventHandler(this.ToogleConsoleBtn_MouseHover);
             // 
             // MainForm
