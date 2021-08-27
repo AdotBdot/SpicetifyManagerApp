@@ -102,6 +102,14 @@ namespace SpicetifyManager
         const int SW_HIDE = 0;
         const int SW_SHOW = 5;
 
+        public static void ToogleConsole()
+        {
+            if(IsWindowVisible(GetConsoleWindow()))
+                ShowWindow(GetConsoleWindow(), SW_HIDE);
+            else
+                ShowWindow(GetConsoleWindow(), SW_SHOW);
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
