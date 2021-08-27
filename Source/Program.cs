@@ -95,6 +95,10 @@ namespace SpicetifyManager
         [DllImport("user32.dll")]
         static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool IsWindowVisible(IntPtr hWnd);
+
         const int SW_HIDE = 0;
         const int SW_SHOW = 5;
 
