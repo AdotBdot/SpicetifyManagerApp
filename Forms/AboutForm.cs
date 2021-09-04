@@ -35,7 +35,7 @@ namespace SpicetifyManager
             label5.Font = new Font(Fonts.Pfc.Families[1], 12);
             label6.Font = new Font(Fonts.Pfc.Families[1], 12);
             VersionCheckLabel.Font = new Font(Fonts.Pfc.Families[1], 11);
-            VersionCheckBtn.Font = new Font(Fonts.Pfc.Families[1], 10);
+            VersionCheckBtn.Font = new Font(Fonts.Pfc.Families[1], 9);
             ManagerVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpicetifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpotifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);

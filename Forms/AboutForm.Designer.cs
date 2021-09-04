@@ -206,12 +206,14 @@ namespace SpicetifyManager
             this.VersionCheckBtn.FlatAppearance.BorderSize = 0;
             this.VersionCheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VersionCheckBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.VersionCheckBtn.Location = new System.Drawing.Point(256, 58);
+            this.VersionCheckBtn.Location = new System.Drawing.Point(256, 61);
             this.VersionCheckBtn.Margin = new System.Windows.Forms.Padding(7);
             this.VersionCheckBtn.Name = "VersionCheckBtn";
-            this.VersionCheckBtn.Size = new System.Drawing.Size(74, 30);
+            this.VersionCheckBtn.Size = new System.Drawing.Size(74, 24);
             this.VersionCheckBtn.TabIndex = 62;
             this.VersionCheckBtn.Text = "Check";
+            this.VersionCheckBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.VersionCheckBtn.UseMnemonic = false;
             this.VersionCheckBtn.UseVisualStyleBackColor = true;
             this.VersionCheckBtn.Click += new System.EventHandler(this.VersionCheckBtn_Click);
             // 
