@@ -32,6 +32,7 @@ namespace SpicetifyManager
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.NavBar = new System.Windows.Forms.Panel();
+            this.ToogleConsoleBtn = new System.Windows.Forms.Button();
             this.ReloadButton = new System.Windows.Forms.Button();
             this.WarningIcon = new System.Windows.Forms.Panel();
             this.PluginsButton = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@ namespace SpicetifyManager
             this.SettingsButton = new System.Windows.Forms.Button();
             this.ChildFormPanel = new System.Windows.Forms.Panel();
             this.WarningToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ToogleConsoleBtn = new System.Windows.Forms.Button();
             this.ToogleConsoleToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ReloadTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.NavBar.SuspendLayout();
@@ -66,6 +66,23 @@ namespace SpicetifyManager
             this.NavBar.Size = new System.Drawing.Size(150, 461);
             this.NavBar.TabIndex = 0;
             // 
+            // ToogleConsoleBtn
+            // 
+            this.ToogleConsoleBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ToogleConsoleBtn.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ToogleConsoleBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToogleConsoleBtn.BackgroundImage")));
+            this.ToogleConsoleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ToogleConsoleBtn.FlatAppearance.BorderSize = 0;
+            this.ToogleConsoleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToogleConsoleBtn.Location = new System.Drawing.Point(55, 420);
+            this.ToogleConsoleBtn.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ToogleConsoleBtn.Name = "ToogleConsoleBtn";
+            this.ToogleConsoleBtn.Size = new System.Drawing.Size(40, 40);
+            this.ToogleConsoleBtn.TabIndex = 6;
+            this.ToogleConsoleBtn.UseVisualStyleBackColor = false;
+            this.ToogleConsoleBtn.Click += new System.EventHandler(this.ToogleConsoleBtn_Click);
+            this.ToogleConsoleBtn.MouseHover += new System.EventHandler(this.ToogleConsoleBtn_MouseHover);
+            // 
             // ReloadButton
             // 
             this.ReloadButton.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -73,7 +90,7 @@ namespace SpicetifyManager
             this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ReloadButton.FlatAppearance.BorderSize = 0;
             this.ReloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReloadButton.Location = new System.Drawing.Point(106, 414);
+            this.ReloadButton.Location = new System.Drawing.Point(107, 418);
             this.ReloadButton.Name = "ReloadButton";
             this.ReloadButton.Size = new System.Drawing.Size(40, 40);
             this.ReloadButton.TabIndex = 5;
@@ -85,7 +102,7 @@ namespace SpicetifyManager
             // 
             this.WarningIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("WarningIcon.BackgroundImage")));
             this.WarningIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.WarningIcon.Location = new System.Drawing.Point(12, 414);
+            this.WarningIcon.Location = new System.Drawing.Point(3, 418);
             this.WarningIcon.Name = "WarningIcon";
             this.WarningIcon.Size = new System.Drawing.Size(40, 40);
             this.WarningIcon.TabIndex = 0;
@@ -188,22 +205,6 @@ namespace SpicetifyManager
             this.ChildFormPanel.Name = "ChildFormPanel";
             this.ChildFormPanel.Size = new System.Drawing.Size(704, 461);
             this.ChildFormPanel.TabIndex = 1;
-            // 
-            // ToogleConsoleBtn
-            // 
-            this.ToogleConsoleBtn.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ToogleConsoleBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToogleConsoleBtn.BackgroundImage")));
-            this.ToogleConsoleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ToogleConsoleBtn.FlatAppearance.BorderSize = 0;
-            this.ToogleConsoleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToogleConsoleBtn.Location = new System.Drawing.Point(60, 414);
-            this.ToogleConsoleBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
-            this.ToogleConsoleBtn.Name = "ToogleConsoleBtn";
-            this.ToogleConsoleBtn.Size = new System.Drawing.Size(40, 40);
-            this.ToogleConsoleBtn.TabIndex = 6;
-            this.ToogleConsoleBtn.UseVisualStyleBackColor = false;
-            this.ToogleConsoleBtn.Click += new System.EventHandler(this.ToogleConsoleBtn_Click);
-            this.ToogleConsoleBtn.MouseHover += new System.EventHandler(this.ToogleConsoleBtn_MouseHover);
             // 
             // MainForm
             // 
