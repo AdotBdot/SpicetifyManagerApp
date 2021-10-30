@@ -40,25 +40,46 @@ namespace SpicetifyManager
                 return new List<string>();
 
             string[] lines;
-            List<string> returnValue = new List<string>();
+
             try
             {
                 lines = File.ReadAllLines(_UserDirectory + "Themes\\" + themeName + "\\color.ini");
             }
-            catch(Exception e)
+            catch(FileNotFoundException e)
             {
+                Console.WriteLine(e);
+                return new List<string>();
+            }
+            catch(DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e);
                 try
                 {
-                    lines = File.ReadAllLines(
-                        _UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
+                    lines = File.ReadAllLines(_UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
+                }
+                catch(FileNotFoundException exception)
+                {
+                    Console.WriteLine(exception);
+                    return new List<string>();
+                }
+                catch(DirectoryNotFoundException exception)
+                {
+                    Console.WriteLine(exception);
+                    return new List<string>();
                 }
                 catch(Exception exception)
                 {
-                    Console.WriteLine(e);
-                    Console.WriteLine(exception);
-                    return returnValue;
+                    Console.WriteLine("Unhandled exception:" + exception);
+                    return new List<string>();
                 }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine("Unhandled exception:" + e);
+                return new List<string>();
+            }
+
+            List<string> returnValue = new List<string>();
 
             foreach(string line in lines)
             {
@@ -264,7 +285,7 @@ namespace SpicetifyManager
                 return;
             }
 
-            _Themes = new List<string> {"(none)"};
+            _Themes = new List<string> { "(none)" };
 
             //.spicetify
             string[] userThemes = Directory.GetDirectories(_UserDirectory + "Themes");
