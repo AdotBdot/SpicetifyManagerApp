@@ -36,6 +36,8 @@ namespace SpicetifyManager
             label6.Font = new Font(Fonts.Pfc.Families[1], 12);
             VersionCheckLabel.Font = new Font(Fonts.Pfc.Families[1], 11);
             VersionCheckBtn.Font = new Font(Fonts.Pfc.Families[1], 9);
+            SpicetifyVersionCheckLabel.Font = new Font(Fonts.Pfc.Families[1], 11);
+            SpicetifyVersionCheckBtn.Font = new Font(Fonts.Pfc.Families[1], 9);
             ManagerVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpicetifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
             SpotifyVer.Font = new Font(Fonts.Pfc.Families[1], 12);
@@ -57,6 +59,9 @@ namespace SpicetifyManager
             VersionCheckLabel.ForeColor = Colors.TxtLight;
             VersionCheckBtn.ForeColor = Colors.TxtDark;
             VersionCheckBtn.BackColor = Colors.Primary;
+            SpicetifyVersionCheckLabel.ForeColor = Colors.TxtLight;
+            SpicetifyVersionCheckBtn.ForeColor = Colors.TxtDark;
+            SpicetifyVersionCheckBtn.BackColor = Colors.Primary;
             ManagerVer.ForeColor = Colors.TxtLight;
             ManagerVer.BackColor = Colors.GetBg(1);
             SpicetifyVer.ForeColor = Colors.TxtLight;
@@ -111,8 +116,16 @@ namespace SpicetifyManager
 
         private async void VersionCheckBtn_Click(object sender, EventArgs e)
         {
-            var text = await Version.GetVerCheckString();
+            var latestTag = await Version.GetLastTag("AdotBdot", "SpicetifyManagerApp");
+            var text = (latestTag == Version.CurrentVersion) ? "You are up to date." : "Version " + latestTag + " available.";
             VersionCheckLabel.Text = text;
+        }
+
+        private async void SpicetifyVersionCheckBtn_Click(object sender, EventArgs e)
+        {
+            var latestTag = await Version.GetLastTag("khanhas", "spicetify-cli");
+            var text = (latestTag == "v" + _Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
+            SpicetifyVersionCheckLabel.Text = text;
         }
     }
 }

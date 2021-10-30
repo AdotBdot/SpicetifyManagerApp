@@ -46,6 +46,8 @@ namespace SpicetifyManager
             this.IconsProviderLink = new System.Windows.Forms.LinkLabel();
             this.VersionCheckBtn = new System.Windows.Forms.Button();
             this.VersionCheckLabel = new System.Windows.Forms.Label();
+            this.SpicetifyVersionCheckBtn = new System.Windows.Forms.Button();
+            this.SpicetifyVersionCheckLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -226,11 +228,38 @@ namespace SpicetifyManager
             this.VersionCheckLabel.Size = new System.Drawing.Size(0, 20);
             this.VersionCheckLabel.TabIndex = 63;
             // 
+            // SpicetifyVersionCheckBtn
+            // 
+            this.SpicetifyVersionCheckBtn.FlatAppearance.BorderSize = 0;
+            this.SpicetifyVersionCheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SpicetifyVersionCheckBtn.Font = new System.Drawing.Font("Open Sans SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpicetifyVersionCheckBtn.Location = new System.Drawing.Point(256, 87);
+            this.SpicetifyVersionCheckBtn.Margin = new System.Windows.Forms.Padding(7);
+            this.SpicetifyVersionCheckBtn.Name = "SpicetifyVersionCheckBtn";
+            this.SpicetifyVersionCheckBtn.Size = new System.Drawing.Size(74, 24);
+            this.SpicetifyVersionCheckBtn.TabIndex = 64;
+            this.SpicetifyVersionCheckBtn.Text = "Check";
+            this.SpicetifyVersionCheckBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SpicetifyVersionCheckBtn.UseMnemonic = false;
+            this.SpicetifyVersionCheckBtn.UseVisualStyleBackColor = true;
+            this.SpicetifyVersionCheckBtn.Click += new System.EventHandler(this.SpicetifyVersionCheckBtn_Click);
+            // 
+            // SpicetifyVersionCheckLabel
+            // 
+            this.SpicetifyVersionCheckLabel.AutoSize = true;
+            this.SpicetifyVersionCheckLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpicetifyVersionCheckLabel.Location = new System.Drawing.Point(340, 88);
+            this.SpicetifyVersionCheckLabel.Name = "SpicetifyVersionCheckLabel";
+            this.SpicetifyVersionCheckLabel.Size = new System.Drawing.Size(0, 20);
+            this.SpicetifyVersionCheckLabel.TabIndex = 65;
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.SpicetifyVersionCheckLabel);
+            this.Controls.Add(this.SpicetifyVersionCheckBtn);
             this.Controls.Add(this.VersionCheckLabel);
             this.Controls.Add(this.VersionCheckBtn);
             this.Controls.Add(this.IconsProviderLink);
@@ -275,5 +304,7 @@ namespace SpicetifyManager
         private System.Windows.Forms.LinkLabel IconsProviderLink;
         private System.Windows.Forms.Button VersionCheckBtn;
         private System.Windows.Forms.Label VersionCheckLabel;
+        private System.Windows.Forms.Button SpicetifyVersionCheckBtn;
+        private System.Windows.Forms.Label SpicetifyVersionCheckLabel;
     }
 }
