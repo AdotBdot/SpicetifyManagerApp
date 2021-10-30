@@ -253,7 +253,7 @@ namespace SpicetifyManager
         }
 
 
-        public void Install()
+        /*public void Install()
         {
             if(Detected)
                 return;
@@ -264,7 +264,7 @@ namespace SpicetifyManager
                 .AddCommand("Invoke-Expression").Invoke();
 
             PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").Invoke();
-        }
+        }*/
 
 
         private string ReadVersion()
