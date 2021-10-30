@@ -101,7 +101,7 @@ namespace SpicetifyManager
             this.ExtensionsList.FormattingEnabled = true;
             this.ExtensionsList.Location = new System.Drawing.Point(20, 91);
             this.ExtensionsList.Name = "ExtensionsList";
-            this.ExtensionsList.Size = new System.Drawing.Size(190, 230);
+            this.ExtensionsList.Size = new System.Drawing.Size(190, 276);
             this.ExtensionsList.Sorted = true;
             this.ExtensionsList.TabIndex = 41;
             this.ExtensionsList.UseCompatibleTextRendering = true;
@@ -113,7 +113,7 @@ namespace SpicetifyManager
             this.CustomAppsList.FormattingEnabled = true;
             this.CustomAppsList.Location = new System.Drawing.Point(236, 91);
             this.CustomAppsList.Name = "CustomAppsList";
-            this.CustomAppsList.Size = new System.Drawing.Size(190, 230);
+            this.CustomAppsList.Size = new System.Drawing.Size(190, 276);
             this.CustomAppsList.Sorted = true;
             this.CustomAppsList.TabIndex = 42;
             this.CustomAppsList.UseCompatibleTextRendering = true;
