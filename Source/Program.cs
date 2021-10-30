@@ -67,20 +67,20 @@ namespace SpicetifyManager
                 System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
                 uint dummy = 0;
                 Pfc.AddMemoryFont(fontPtr, font.Length);
-                AddFontMemResourceEx(fontPtr, (uint) font.Length, IntPtr.Zero, ref dummy);
+                AddFontMemResourceEx(fontPtr, (uint)font.Length, IntPtr.Zero, ref dummy);
                 System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             }
         }
 
         public static class Version
         {
-            public static async Task<string> GetVerCheckString()
+            public static async Task<string> GetLastTag(string owner, string repoName)
             {
-                GitHubClient git = new GitHubClient(new ProductHeaderValue("SpicetifyManager"));
-                var repo = await git.Repository.Get("AdotBdot", "SpicetifyManagerApp");
+                GitHubClient git = new GitHubClient(new ProductHeaderValue("Tag"));
+                var repo = await git.Repository.Get(owner, repoName);
                 var tags = await git.Repository.GetAllTags(repo.Id);
 
-                return tags[0].Name == CurrentVersion ? "You are up to date." : "Version " + tags[0].Name + " available.";
+                return tags[0].Name;
             }
 
             public static readonly string CurrentVersion = "v1.3.0";
