@@ -160,19 +160,25 @@ namespace SpicetifyManager
             {
             case "ThemesForm":
             {
-                ThemesForm f = (ThemesForm) _ActiveForm;
+                ThemesForm f = (ThemesForm)_ActiveForm;
                 f.Reload();
                 break;
             }
             case "PluginsForm":
             {
-                PluginsForm f = (PluginsForm) _ActiveForm;
+                PluginsForm f = (PluginsForm)_ActiveForm;
                 f.Reload();
                 break;
             }
             case "SettingsForm":
             {
-                SettingsForm f = (SettingsForm) _ActiveForm;
+                SettingsForm f = (SettingsForm)_ActiveForm;
+                f.Reload();
+                break;
+            }
+            case "AboutForm":
+            {
+                AboutForm f = (AboutForm)_ActiveForm;
                 f.Reload();
                 break;
             }
