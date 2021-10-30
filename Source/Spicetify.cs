@@ -57,9 +57,8 @@ namespace SpicetifyManager
             {
                 lines = File.ReadAllLines(_UserDirectory + "Themes\\" + themeName + "\\color.ini");
             }
-            catch(FileNotFoundException e)
+            catch(FileNotFoundException)
             {
-                Console.WriteLine(e);
                 return new List<string>();
             }
             catch(DirectoryNotFoundException e)
@@ -69,14 +68,12 @@ namespace SpicetifyManager
                 {
                     lines = File.ReadAllLines(_UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
                 }
-                catch(FileNotFoundException exception)
+                catch(FileNotFoundException)
                 {
-                    Console.WriteLine(exception);
                     return new List<string>();
                 }
-                catch(DirectoryNotFoundException exception)
+                catch(DirectoryNotFoundException)
                 {
-                    Console.WriteLine(exception);
                     return new List<string>();
                 }
                 catch(Exception exception)
