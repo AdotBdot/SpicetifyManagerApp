@@ -23,7 +23,19 @@ namespace SpicetifyManager
 
         public bool DetectSpicetify()
         {
-            return File.Exists(_CliDirectory + "spicetify.exe");
+            try
+            {
+                return File.Exists(_CliDirectory + "spicetify.exe");
+            }
+            catch(DirectoryNotFoundException e)
+            {
+                return false;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
         }
 
         public void ListAll()
