@@ -63,7 +63,6 @@ namespace SpicetifyManager
             }
             catch(DirectoryNotFoundException e)
             {
-                Console.WriteLine(e);
                 try
                 {
                     lines = File.ReadAllLines(_UserDirectory + "..\\spicetify-cli\\Themes\\" + themeName + "\\color.ini");
@@ -78,6 +77,7 @@ namespace SpicetifyManager
                 }
                 catch(Exception exception)
                 {
+                    Console.WriteLine("Handled: " + e);
                     Console.WriteLine("Unhandled exception:" + exception);
                     return new List<string>();
                 }
