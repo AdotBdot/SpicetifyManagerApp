@@ -164,5 +164,15 @@ namespace SpicetifyManager
         {
             ToolTip.Show("Save plugins settings.", SaveBtn);
         }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Choose extensions from list below.", label1);
+        }
+
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Choose custom apps from list below.", label2);
+        }
     }
 }
