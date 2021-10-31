@@ -29,6 +29,7 @@ namespace SpicetifyManager
             }
             catch(DirectoryNotFoundException e)
             {
+                Console.WriteLine(e);
                 return false;
             }
             catch(Exception e)
