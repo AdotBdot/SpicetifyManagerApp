@@ -203,7 +203,7 @@ namespace SpicetifyManager
 
         private void ApplyBtn_MouseHover(object sender, EventArgs e)
         {
-            ToolTip.Show("Apply config.", ApplyBtn);
+            ToolTip.Show("Apply current config.", ApplyBtn);
         }
     }
 }
