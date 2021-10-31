@@ -162,5 +162,25 @@ namespace SpicetifyManager
 
             _Spicetify.OpenThemeFolder();
         }
+
+        private void SaveBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Save themes settings.", SaveBtn);
+        }
+
+        private void ApplyBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Apply current config.", ApplyBtn);
+        }
+
+        private void UpdateBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Update theme and color scheme.", UpdateBtn);
+        }
+
+        private void ThemeFolderBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Open themes folder.", ThemeFolderBtn);
+        }
     }
 }

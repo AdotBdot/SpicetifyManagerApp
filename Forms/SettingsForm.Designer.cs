@@ -29,6 +29,7 @@ namespace SpicetifyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.DisableUpgradeCheckChkBox = new System.Windows.Forms.CheckBox();
             this.SidebarConfigChkBox = new System.Windows.Forms.CheckBox();
@@ -52,6 +53,7 @@ namespace SpicetifyManager
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Image = new System.Windows.Forms.Panel();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // DisableUpgradeCheckChkBox
@@ -196,6 +198,7 @@ namespace SpicetifyManager
             this.LaunchFlagsInput.Name = "LaunchFlagsInput";
             this.LaunchFlagsInput.Size = new System.Drawing.Size(346, 26);
             this.LaunchFlagsInput.TabIndex = 36;
+            this.LaunchFlagsInput.MouseHover += new System.EventHandler(this.LaunchFlagsInput_MouseHover);
             // 
             // SpotifyPathInput
             // 
@@ -207,6 +210,7 @@ namespace SpicetifyManager
             this.SpotifyPathInput.Name = "SpotifyPathInput";
             this.SpotifyPathInput.Size = new System.Drawing.Size(346, 26);
             this.SpotifyPathInput.TabIndex = 34;
+            this.SpotifyPathInput.MouseHover += new System.EventHandler(this.SpotifyPathInput_MouseHover);
             // 
             // PrefsPathInput
             // 
@@ -218,6 +222,7 @@ namespace SpicetifyManager
             this.PrefsPathInput.Name = "PrefsPathInput";
             this.PrefsPathInput.Size = new System.Drawing.Size(346, 26);
             this.PrefsPathInput.TabIndex = 32;
+            this.PrefsPathInput.MouseHover += new System.EventHandler(this.PrefsPathInput_MouseHover);
             // 
             // Title
             // 
@@ -243,6 +248,7 @@ namespace SpicetifyManager
             this.ConfigFileBtn.Text = "Config File";
             this.ConfigFileBtn.UseVisualStyleBackColor = true;
             this.ConfigFileBtn.Click += new System.EventHandler(this.ConfigFileBtn_Click);
+            this.ConfigFileBtn.MouseHover += new System.EventHandler(this.ConfigFileBtn_MouseHover);
             // 
             // ApplyBtn
             // 
@@ -257,6 +263,7 @@ namespace SpicetifyManager
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
             this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
+            this.ApplyBtn.MouseHover += new System.EventHandler(this.ApplyBtn_MouseHover);
             // 
             // SaveBtn
             // 
@@ -271,6 +278,7 @@ namespace SpicetifyManager
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            this.SaveBtn.MouseHover += new System.EventHandler(this.SaveBtn_MouseHover);
             // 
             // label1
             // 
@@ -281,6 +289,7 @@ namespace SpicetifyManager
             this.label1.Size = new System.Drawing.Size(89, 22);
             this.label1.TabIndex = 51;
             this.label1.Text = "Prefs Path";
+            this.label1.MouseHover += new System.EventHandler(this.label1_MouseHover);
             // 
             // label2
             // 
@@ -291,6 +300,7 @@ namespace SpicetifyManager
             this.label2.Size = new System.Drawing.Size(103, 22);
             this.label2.TabIndex = 52;
             this.label2.Text = "Spotify Path";
+            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
             // 
             // label3
             // 
@@ -301,6 +311,7 @@ namespace SpicetifyManager
             this.label3.Size = new System.Drawing.Size(109, 22);
             this.label3.TabIndex = 53;
             this.label3.Text = "Launch Flags";
+            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
             // 
             // Image
             // 
@@ -375,5 +386,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel Image;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }

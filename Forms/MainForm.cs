@@ -189,17 +189,17 @@ namespace SpicetifyManager
 
         private void WarningIcon_MouseHover(object sender, EventArgs e)
         {
-            WarningToolTip.Show("spicetify.exe not found, install spicetify and restart application", WarningIcon);
+            ToolTip.Show("'spicetify.exe' not found, install spicetify and restart application.", WarningIcon);
         }
 
         private void ToogleConsoleBtn_MouseHover(object sender, EventArgs e)
         {
-            ToogleConsoleToolTip.Show("Toogle console", ToogleConsoleBtn);
+            ToolTip.Show("Toogle console.", ToogleConsoleBtn);
         }
 
         private void ReloadButton_MouseHover(object sender, EventArgs e)
         {
-            ReloadTooltip.Show("Reload", ReloadButton);
+            ToolTip.Show("Reload current form.", ReloadButton);
         }
 
         private void ToogleConsoleBtn_Click(object sender, EventArgs e)

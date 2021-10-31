@@ -41,9 +41,7 @@ namespace SpicetifyManager
             this.AboutButton = new System.Windows.Forms.Button();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.ChildFormPanel = new System.Windows.Forms.Panel();
-            this.WarningToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ToogleConsoleToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ReloadTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.NavBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,9 +234,7 @@ namespace SpicetifyManager
         private System.Windows.Forms.Button ThemesButton;
         private System.Windows.Forms.Button ReloadButton;
         private System.Windows.Forms.Panel WarningIcon;
-        private System.Windows.Forms.ToolTip WarningToolTip;
+        private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Button ToogleConsoleBtn;
-        private System.Windows.Forms.ToolTip ToogleConsoleToolTip;
-        private System.Windows.Forms.ToolTip ReloadTooltip;
     }
 }

@@ -99,5 +99,30 @@ namespace SpicetifyManager
                 Task.Run(() => _Spicetify.Restore());
             }
         }
+
+        private void UpgradeBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Upgrade Spicetify", UpgradeBtn);
+        }
+
+        private void RestartBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Restart Spotify", RestartBtn);
+        }
+
+        private void BackupBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Backup Spotify files", BackupBtn);
+        }
+
+        private void ClearBackupBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Clear backup", ClearBackupBtn);
+        }
+
+        private void RestoreBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Restores Spotify to it's original state", RestoreBtn);
+        }
     }
 }

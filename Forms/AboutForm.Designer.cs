@@ -29,6 +29,7 @@ namespace SpicetifyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@ namespace SpicetifyManager
             this.VersionCheckLabel = new System.Windows.Forms.Label();
             this.SpicetifyVersionCheckBtn = new System.Windows.Forms.Button();
             this.SpicetifyVersionCheckLabel = new System.Windows.Forms.Label();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -218,6 +220,7 @@ namespace SpicetifyManager
             this.VersionCheckBtn.UseMnemonic = false;
             this.VersionCheckBtn.UseVisualStyleBackColor = true;
             this.VersionCheckBtn.Click += new System.EventHandler(this.VersionCheckBtn_Click);
+            this.VersionCheckBtn.MouseHover += new System.EventHandler(this.VersionCheckBtn_MouseHover);
             // 
             // VersionCheckLabel
             // 
@@ -243,6 +246,7 @@ namespace SpicetifyManager
             this.SpicetifyVersionCheckBtn.UseMnemonic = false;
             this.SpicetifyVersionCheckBtn.UseVisualStyleBackColor = true;
             this.SpicetifyVersionCheckBtn.Click += new System.EventHandler(this.SpicetifyVersionCheckBtn_Click);
+            this.SpicetifyVersionCheckBtn.MouseHover += new System.EventHandler(this.SpicetifyVersionCheckBtn_MouseHover);
             // 
             // SpicetifyVersionCheckLabel
             // 
@@ -306,5 +310,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Label VersionCheckLabel;
         private System.Windows.Forms.Button SpicetifyVersionCheckBtn;
         private System.Windows.Forms.Label SpicetifyVersionCheckLabel;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }

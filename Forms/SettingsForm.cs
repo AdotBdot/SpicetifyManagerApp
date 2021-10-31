@@ -160,5 +160,50 @@ namespace SpicetifyManager
 
             _Spicetify.OpenConfigFile();
         }
+
+        private void LaunchFlagsInput_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Spotify launch flags.", LaunchFlagsInput);
+        }
+
+        private void label3_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Spotify launch flags", label3);
+        }
+
+        private void ConfigFileBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Open config file in text editor.", ConfigFileBtn);
+        }
+
+        private void SpotifyPathInput_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Path to spotify executable.", SpotifyPathInput);
+        }
+
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Path to spotify executable.", label2);
+        }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Path to spotify prefs.", label1);
+        }
+
+        private void PrefsPathInput_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Path to spotify prefs.", PrefsPathInput);
+        }
+
+        private void SaveBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Save settings.", SaveBtn);
+        }
+
+        private void ApplyBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Apply config.", ApplyBtn);
+        }
     }
 }

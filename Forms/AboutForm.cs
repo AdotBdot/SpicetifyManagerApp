@@ -133,5 +133,15 @@ namespace SpicetifyManager
             var text = (latestTag == "v" + _Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionCheckLabel.Text = text;
         }
+
+        private void VersionCheckBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Check if there is a new version available.", VersionCheckBtn);
+        }
+
+        private void SpicetifyVersionCheckBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Check if there is a new version of Spicetify available.", SpicetifyVersionCheckBtn);
+        }
     }
 }

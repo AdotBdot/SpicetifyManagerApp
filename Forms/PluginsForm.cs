@@ -144,5 +144,25 @@ namespace SpicetifyManager
 
             _Spicetify.OpenCustomAppsFolder();
         }
+
+        private void ExtsFolderBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Open extensions folder.", ExtsFolderBtn);
+        }
+
+        private void CustomAppsFolderBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Open custom apps folder.", CustomAppsFolderBtn);
+        }
+
+        private void ApplyBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Apply current config.", ApplyBtn);
+        }
+
+        private void SaveBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Save plugins settings.", SaveBtn);
+        }
     }
 }

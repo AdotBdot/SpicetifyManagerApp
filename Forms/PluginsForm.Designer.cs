@@ -29,6 +29,7 @@ namespace SpicetifyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginsForm));
             this.CustomAppsFolderBtn = new System.Windows.Forms.Button();
             this.ApplyBtn = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@ namespace SpicetifyManager
             this.ExtsFolderBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Image = new System.Windows.Forms.Panel();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // CustomAppsFolderBtn
@@ -55,6 +57,7 @@ namespace SpicetifyManager
             this.CustomAppsFolderBtn.Text = "Custom Apps Folder";
             this.CustomAppsFolderBtn.UseVisualStyleBackColor = true;
             this.CustomAppsFolderBtn.Click += new System.EventHandler(this.CustomAppsFolderBtn_Click);
+            this.CustomAppsFolderBtn.MouseHover += new System.EventHandler(this.CustomAppsFolderBtn_MouseHover);
             // 
             // ApplyBtn
             // 
@@ -69,6 +72,7 @@ namespace SpicetifyManager
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
             this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
+            this.ApplyBtn.MouseHover += new System.EventHandler(this.ApplyBtn_MouseHover);
             // 
             // SaveBtn
             // 
@@ -83,6 +87,7 @@ namespace SpicetifyManager
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            this.SaveBtn.MouseHover += new System.EventHandler(this.SaveBtn_MouseHover);
             // 
             // label1
             // 
@@ -141,6 +146,7 @@ namespace SpicetifyManager
             this.ExtsFolderBtn.Text = "Extensions Folder";
             this.ExtsFolderBtn.UseVisualStyleBackColor = true;
             this.ExtsFolderBtn.Click += new System.EventHandler(this.ExtsFolderBtn_Click);
+            this.ExtsFolderBtn.MouseHover += new System.EventHandler(this.ExtsFolderBtn_MouseHover);
             // 
             // Title
             // 
@@ -200,5 +206,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Button ExtsFolderBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel Image;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }

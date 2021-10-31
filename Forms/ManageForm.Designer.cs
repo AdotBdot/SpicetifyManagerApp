@@ -29,6 +29,7 @@ namespace SpicetifyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageForm));
             this.Title = new System.Windows.Forms.Label();
             this.RestartBtn = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@ namespace SpicetifyManager
             this.BackupBtn = new System.Windows.Forms.Button();
             this.ClearBackupBtn = new System.Windows.Forms.Button();
             this.RestoreBtn = new System.Windows.Forms.Button();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // Title
@@ -63,6 +65,7 @@ namespace SpicetifyManager
             this.RestartBtn.Text = "Restart Spotify";
             this.RestartBtn.UseVisualStyleBackColor = true;
             this.RestartBtn.Click += new System.EventHandler(this.RestartBtn_Click);
+            this.RestartBtn.MouseHover += new System.EventHandler(this.RestartBtn_MouseHover);
             // 
             // UpgradeBtn
             // 
@@ -77,6 +80,7 @@ namespace SpicetifyManager
             this.UpgradeBtn.Text = "Upgrade";
             this.UpgradeBtn.UseVisualStyleBackColor = true;
             this.UpgradeBtn.Click += new System.EventHandler(this.UpgradeBtn_Click);
+            this.UpgradeBtn.MouseHover += new System.EventHandler(this.UpgradeBtn_MouseHover);
             // 
             // Image
             // 
@@ -100,6 +104,7 @@ namespace SpicetifyManager
             this.BackupBtn.Text = "Backup";
             this.BackupBtn.UseVisualStyleBackColor = true;
             this.BackupBtn.Click += new System.EventHandler(this.BackupBtn_Click);
+            this.BackupBtn.MouseHover += new System.EventHandler(this.BackupBtn_MouseHover);
             // 
             // ClearBackupBtn
             // 
@@ -114,6 +119,7 @@ namespace SpicetifyManager
             this.ClearBackupBtn.Text = "Clear Backup";
             this.ClearBackupBtn.UseVisualStyleBackColor = true;
             this.ClearBackupBtn.Click += new System.EventHandler(this.ClearBackupBtn_Click);
+            this.ClearBackupBtn.MouseHover += new System.EventHandler(this.ClearBackupBtn_MouseHover);
             // 
             // RestoreBtn
             // 
@@ -128,6 +134,7 @@ namespace SpicetifyManager
             this.RestoreBtn.Text = "Restore";
             this.RestoreBtn.UseVisualStyleBackColor = true;
             this.RestoreBtn.Click += new System.EventHandler(this.RestoreBtn_Click);
+            this.RestoreBtn.MouseHover += new System.EventHandler(this.RestoreBtn_MouseHover);
             // 
             // ManageForm
             // 
@@ -160,5 +167,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Button BackupBtn;
         private System.Windows.Forms.Button ClearBackupBtn;
         private System.Windows.Forms.Button RestoreBtn;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }

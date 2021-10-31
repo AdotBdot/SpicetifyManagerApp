@@ -29,6 +29,7 @@ namespace SpicetifyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemesForm));
             this.label4 = new System.Windows.Forms.Label();
             this.ColorsDropdown = new System.Windows.Forms.ComboBox();
@@ -40,6 +41,7 @@ namespace SpicetifyManager
             this.ThemeFolderBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Image = new System.Windows.Forms.Panel();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label4
@@ -106,6 +108,7 @@ namespace SpicetifyManager
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            this.SaveBtn.MouseHover += new System.EventHandler(this.SaveBtn_MouseHover);
             // 
             // ApplyBtn
             // 
@@ -120,6 +123,7 @@ namespace SpicetifyManager
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
             this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
+            this.ApplyBtn.MouseHover += new System.EventHandler(this.ApplyBtn_MouseHover);
             // 
             // UpdateBtn
             // 
@@ -134,6 +138,7 @@ namespace SpicetifyManager
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            this.UpdateBtn.MouseHover += new System.EventHandler(this.UpdateBtn_MouseHover);
             // 
             // ThemeFolderBtn
             // 
@@ -148,6 +153,7 @@ namespace SpicetifyManager
             this.ThemeFolderBtn.Text = "Theme Folder";
             this.ThemeFolderBtn.UseVisualStyleBackColor = true;
             this.ThemeFolderBtn.Click += new System.EventHandler(this.ThemeFolderBtn_Click);
+            this.ThemeFolderBtn.MouseHover += new System.EventHandler(this.ThemeFolderBtn_MouseHover);
             // 
             // Title
             // 
@@ -208,5 +214,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Button ThemeFolderBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel Image;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }
