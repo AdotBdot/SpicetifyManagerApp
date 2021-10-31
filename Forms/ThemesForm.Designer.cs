@@ -68,6 +68,7 @@ namespace SpicetifyManager
             this.ColorsDropdown.Size = new System.Drawing.Size(220, 28);
             this.ColorsDropdown.Sorted = true;
             this.ColorsDropdown.TabIndex = 30;
+            this.ColorsDropdown.MouseHover += new System.EventHandler(this.ColorsDropdown_MouseHover);
             // 
             // label3
             // 
@@ -94,6 +95,7 @@ namespace SpicetifyManager
             this.ThemesDropdown.Sorted = true;
             this.ThemesDropdown.TabIndex = 28;
             this.ThemesDropdown.SelectedIndexChanged += new System.EventHandler(this.CurrentThemeBox_SelectedIndexChanged);
+            this.ThemesDropdown.MouseHover += new System.EventHandler(this.ThemesDropdown_MouseHover);
             // 
             // SaveBtn
             // 

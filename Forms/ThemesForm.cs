@@ -182,5 +182,15 @@ namespace SpicetifyManager
         {
             ToolTip.Show("Open themes folder.", ThemeFolderBtn);
         }
+
+        private void ThemesDropdown_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Select the Theme you want to use.", ThemesDropdown);
+        }
+
+        private void ColorsDropdown_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Select the Color Scheme of chosen theme you want to use.", ColorsDropdown);
+        }
     }
 }

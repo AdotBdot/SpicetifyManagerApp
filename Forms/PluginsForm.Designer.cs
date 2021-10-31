@@ -98,7 +98,6 @@ namespace SpicetifyManager
             this.label1.Size = new System.Drawing.Size(110, 26);
             this.label1.TabIndex = 40;
             this.label1.Text = "Extensions";
-            this.label1.MouseHover += new System.EventHandler(this.label1_MouseHover);
             // 
             // ExtensionsList
             // 
@@ -111,6 +110,7 @@ namespace SpicetifyManager
             this.ExtensionsList.Sorted = true;
             this.ExtensionsList.TabIndex = 41;
             this.ExtensionsList.UseCompatibleTextRendering = true;
+            this.ExtensionsList.MouseHover += new System.EventHandler(this.ExtensionsList_MouseHover);
             // 
             // CustomAppsList
             // 
@@ -123,6 +123,7 @@ namespace SpicetifyManager
             this.CustomAppsList.Sorted = true;
             this.CustomAppsList.TabIndex = 42;
             this.CustomAppsList.UseCompatibleTextRendering = true;
+            this.CustomAppsList.MouseHover += new System.EventHandler(this.CustomAppsList_MouseHover);
             // 
             // label2
             // 
@@ -133,7 +134,6 @@ namespace SpicetifyManager
             this.label2.Size = new System.Drawing.Size(133, 26);
             this.label2.TabIndex = 43;
             this.label2.Text = "Custom Apps";
-            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
             // 
             // ExtsFolderBtn
             // 

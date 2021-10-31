@@ -165,14 +165,14 @@ namespace SpicetifyManager
             ToolTip.Show("Save plugins settings.", SaveBtn);
         }
 
-        private void label1_MouseHover(object sender, EventArgs e)
+        private void ExtensionsList_MouseHover(object sender, EventArgs e)
         {
-            ToolTip.Show("Choose extensions from list below.", label1);
+            ToolTip.Show("Select Extensions you want to use.", ExtensionsList);
         }
 
-        private void label2_MouseHover(object sender, EventArgs e)
+        private void CustomAppsList_MouseHover(object sender, EventArgs e)
         {
-            ToolTip.Show("Choose custom apps from list below.", label2);
+            ToolTip.Show("Select Custom Apps you want to use.", CustomAppsList);
         }
     }
 }
