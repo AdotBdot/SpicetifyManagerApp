@@ -1,6 +1,6 @@
 # Spicetify Manager App
+<img src="https://raw.githubusercontent.com/AdotBdot/SpicetifyManagerApp/master/Resources/screenshot.png"/>
 Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify-cli">spicetify-cli</a>. Supports Windows.
-
 <p align="left">
    <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases/latest"><img src="https://img.shields.io/github/v/release/AdotBdot/SpicetifyManagerApp.svg"></a>
    <a href="https://github.com/AdotBdot/SpicetifyManagerApp/releases"><img src="https://img.shields.io/github/downloads/AdotBdot/SpicetifyManagerApp/total.svg"></a>
