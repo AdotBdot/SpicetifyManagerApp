@@ -83,7 +83,7 @@ namespace SpicetifyManager
                 return tags[0].Name;
             }
 
-            public static readonly string CurrentVersion = "v1.3.0";
+            public static readonly string CurrentVersion = "v1.3.1";
         }
     }
 
