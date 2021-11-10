@@ -334,6 +334,7 @@ namespace SpicetifyManager
             this.ExperimentalFeaturesChkBox.TabIndex = 55;
             this.ExperimentalFeaturesChkBox.Text = "ExperimentalFeatures";
             this.ExperimentalFeaturesChkBox.UseVisualStyleBackColor = true;
+            this.ExperimentalFeaturesChkBox.MouseHover += new System.EventHandler(this.ExperimentalFeaturesChkBox_MouseHover);
             // 
             // SettingsForm
             // 

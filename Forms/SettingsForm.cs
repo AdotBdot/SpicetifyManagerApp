@@ -50,6 +50,7 @@ namespace SpicetifyManager
             RemoveRtlRuleChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
             ExposeApisChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
             DisableUpgradeCheckChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
+            ExperimentalFeaturesChkBox.Font = new Font(Fonts.Pfc.Families[1], 12);
             SaveBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             ApplyBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             ConfigFileBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
@@ -79,6 +80,7 @@ namespace SpicetifyManager
             RemoveRtlRuleChkBox.ForeColor = Colors.TxtLight;
             ExposeApisChkBox.ForeColor = Colors.TxtLight;
             DisableUpgradeCheckChkBox.ForeColor = Colors.TxtLight;
+            ExperimentalFeaturesChkBox.ForeColor = Colors.TxtLight;
             SaveBtn.BackColor = Colors.Primary;
             SaveBtn.ForeColor = Colors.TxtDark;
             ApplyBtn.BackColor = Colors.Primary;
@@ -107,6 +109,7 @@ namespace SpicetifyManager
 
             HomeConfigChkBox.Checked = _Settings.HomeConfig;
             SidebarConfigChkBox.Checked = _Settings.SidebarConfig;
+            ExperimentalFeaturesChkBox.Checked = _Settings.ExperimentalFeatures;
         }
 
         private void ReadUserInput()
@@ -127,6 +130,7 @@ namespace SpicetifyManager
 
             _Settings.HomeConfig = HomeConfigChkBox.Checked;
             _Settings.SidebarConfig = SidebarConfigChkBox.Checked;
+            _Settings.ExperimentalFeatures = ExperimentalFeaturesChkBox.Checked;
         }
 
 
@@ -204,6 +208,11 @@ namespace SpicetifyManager
         private void ApplyBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Apply current config.", ApplyBtn);
+        }
+
+        private void ExperimentalFeaturesChkBox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip.Show("Enable ability to activate unfinished or work-in-progress features that would eventually be released in future Spotify updates.",ExperimentalFeaturesChkBox);
         }
     }
 }
