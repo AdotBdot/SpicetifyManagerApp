@@ -54,13 +54,14 @@ namespace SpicetifyManager
             this.label3 = new System.Windows.Forms.Label();
             this.Image = new System.Windows.Forms.Panel();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ExperimentalFeaturesChkBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // DisableUpgradeCheckChkBox
             // 
             this.DisableUpgradeCheckChkBox.AutoSize = true;
             this.DisableUpgradeCheckChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.DisableUpgradeCheckChkBox.Location = new System.Drawing.Point(323, 283);
+            this.DisableUpgradeCheckChkBox.Location = new System.Drawing.Point(323, 281);
             this.DisableUpgradeCheckChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DisableUpgradeCheckChkBox.Name = "DisableUpgradeCheckChkBox";
             this.DisableUpgradeCheckChkBox.Size = new System.Drawing.Size(205, 26);
@@ -72,7 +73,7 @@ namespace SpicetifyManager
             // 
             this.SidebarConfigChkBox.AutoSize = true;
             this.SidebarConfigChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.SidebarConfigChkBox.Location = new System.Drawing.Point(23, 311);
+            this.SidebarConfigChkBox.Location = new System.Drawing.Point(23, 309);
             this.SidebarConfigChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SidebarConfigChkBox.Name = "SidebarConfigChkBox";
             this.SidebarConfigChkBox.Size = new System.Drawing.Size(140, 26);
@@ -84,7 +85,7 @@ namespace SpicetifyManager
             // 
             this.ExposeApisChkBox.AutoSize = true;
             this.ExposeApisChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.ExposeApisChkBox.Location = new System.Drawing.Point(323, 255);
+            this.ExposeApisChkBox.Location = new System.Drawing.Point(323, 253);
             this.ExposeApisChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExposeApisChkBox.Name = "ExposeApisChkBox";
             this.ExposeApisChkBox.Size = new System.Drawing.Size(122, 26);
@@ -96,7 +97,7 @@ namespace SpicetifyManager
             // 
             this.ReplaceColorsChkBox.AutoSize = true;
             this.ReplaceColorsChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.ReplaceColorsChkBox.Location = new System.Drawing.Point(23, 255);
+            this.ReplaceColorsChkBox.Location = new System.Drawing.Point(23, 252);
             this.ReplaceColorsChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ReplaceColorsChkBox.Name = "ReplaceColorsChkBox";
             this.ReplaceColorsChkBox.Size = new System.Drawing.Size(141, 26);
@@ -120,7 +121,7 @@ namespace SpicetifyManager
             // 
             this.HomeConfigChkBox.AutoSize = true;
             this.HomeConfigChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.HomeConfigChkBox.Location = new System.Drawing.Point(23, 283);
+            this.HomeConfigChkBox.Location = new System.Drawing.Point(23, 281);
             this.HomeConfigChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HomeConfigChkBox.Name = "HomeConfigChkBox";
             this.HomeConfigChkBox.Size = new System.Drawing.Size(128, 26);
@@ -322,12 +323,25 @@ namespace SpicetifyManager
             this.Image.Size = new System.Drawing.Size(73, 73);
             this.Image.TabIndex = 54;
             // 
+            // ExperimentalFeaturesChkBox
+            // 
+            this.ExperimentalFeaturesChkBox.AutoSize = true;
+            this.ExperimentalFeaturesChkBox.Font = new System.Drawing.Font("Open Sans SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.ExperimentalFeaturesChkBox.Location = new System.Drawing.Point(23, 337);
+            this.ExperimentalFeaturesChkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ExperimentalFeaturesChkBox.Name = "ExperimentalFeaturesChkBox";
+            this.ExperimentalFeaturesChkBox.Size = new System.Drawing.Size(197, 26);
+            this.ExperimentalFeaturesChkBox.TabIndex = 55;
+            this.ExperimentalFeaturesChkBox.Text = "ExperimentalFeatures";
+            this.ExperimentalFeaturesChkBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.ExperimentalFeaturesChkBox);
             this.Controls.Add(this.Image);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -387,5 +401,6 @@ namespace SpicetifyManager
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel Image;
         private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.CheckBox ExperimentalFeaturesChkBox;
     }
 }
