@@ -97,6 +97,7 @@ namespace SpicetifyManager
             ExtensionsList = _Reader.ReadList("AdditionalOptions", "extensions");
             CustomAppsList = _Reader.ReadList("AdditionalOptions", "custom_apps");
             SidebarConfig = _Reader.ReadBool("AdditionalOptions", "sidebar_config");
+            ExperimentalFeatures = _Reader.ReadBool("AdditionalOptions", "experimental_features");
         }
 
         private void ReadBackup()
@@ -133,6 +134,7 @@ namespace SpicetifyManager
         public List<string> ExtensionsList;
         public List<string> CustomAppsList;
         public bool SidebarConfig;
+        public bool ExperimentalFeatures;
 
         //Backup
         public string SpotifyVersion;
