@@ -13,7 +13,7 @@ namespace SpicetifyManager
 
         public void LoadConfig()
         {
-            if(!_Spicetify.Detected)
+            if (!_Spicetify.Detected)
                 return;
 
             _Reader.LoadFile(_Spicetify.GetConfigPath());
@@ -64,6 +64,7 @@ namespace SpicetifyManager
 
             _Writer.WriteBool("AdditionalOptions", "home_config", HomeConfig);
             _Writer.WriteBool("AdditionalOptions", "sidebar_config", SidebarConfig);
+            _Writer.WriteBool("AdditionalOptions", "experimental_features", ExperimentalFeatures);
 
             _Writer.WriteFile(_Spicetify.GetConfigPath());
         }
