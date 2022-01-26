@@ -23,6 +23,6 @@ namespace SpicetifySettingsApp.Source
         public static Spicetify Spicetify;
         public static Settings Settings;
 
-        public const string Version = "v1.4.0";
+        public const string Version = "v1.3.3";
     }
 }
