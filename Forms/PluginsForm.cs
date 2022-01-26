@@ -9,10 +9,8 @@ namespace SpicetifyManager
 {
     public partial class PluginsForm : Form
     {
-        public PluginsForm(Settings settings, Spicetify spicetify)
+        public PluginsForm()
         {
-            _Settings = settings;
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadFonts();
@@ -21,15 +19,11 @@ namespace SpicetifyManager
             InitControls();
         }
 
-        private Settings _Settings;
-        private Spicetify _Spicetify;
-
         public void Reload()
         {
-            _Settings.LoadConfig();
+            StaticData.Settings.LoadConfig();
             InitControls();
         }
-
 
         private void LoadFonts()
         {
@@ -43,7 +37,6 @@ namespace SpicetifyManager
             ExtsFolderBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             CustomAppsFolderBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
-
         private void LoadColors()
         {
             this.BackColor = Colors.GetBg(0);
@@ -59,31 +52,29 @@ namespace SpicetifyManager
             ExtsFolderBtn.BackColor = Colors.Primary;
             CustomAppsFolderBtn.BackColor = Colors.Primary;
         }
-
         private void InitControls()
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ExtensionsList.Items.Clear();
-            foreach(string ext in _Spicetify.GetExtensions())
+            foreach(string ext in StaticData.Spicetify.GetExtensions())
             {
-                if(_Settings.ExtensionsList.Contains(ext))
+                if(StaticData.Settings.ExtensionsList.Contains(ext))
                     ExtensionsList.Items.Add(ext, CheckState.Checked);
                 else
                     ExtensionsList.Items.Add(ext, CheckState.Unchecked);
             }
 
             CustomAppsList.Items.Clear();
-            foreach(string app in _Spicetify.GetCustomApps())
+            foreach(string app in StaticData.Spicetify.GetCustomApps())
             {
-                if(_Settings.CustomAppsList.Contains(app))
+                if(StaticData.Settings.CustomAppsList.Contains(app))
                     CustomAppsList.Items.Add(app, CheckState.Checked);
                 else
                     CustomAppsList.Items.Add(app, CheckState.Unchecked);
             }
         }
-
         private void ReadUserInput()
         {
             var checkedExts = ExtensionsList.CheckedItems;
@@ -93,7 +84,7 @@ namespace SpicetifyManager
                 newExtsList.Add(item.ToString());
             }
 
-            _Settings.ExtensionsList = newExtsList;
+            StaticData.Settings.ExtensionsList = newExtsList;
 
             var checkedApps = CustomAppsList.CheckedItems;
             List<string> newAppsList = new List<string>();
@@ -102,9 +93,8 @@ namespace SpicetifyManager
                 newAppsList.Add(item.ToString());
             }
 
-            _Settings.CustomAppsList = newAppsList;
+            StaticData.Settings.CustomAppsList = newAppsList;
         }
-
 
         private void PluginsForm_Load(object sender, EventArgs e)
         {
@@ -112,64 +102,56 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SavePlugins();
+            StaticData.Settings.SavePlugins();
         }
-
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SavePlugins();
-            Task.Run(() => _Spicetify.Apply());
+            StaticData.Settings.SavePlugins();
+            Task.Run(() => StaticData.Spicetify.Apply());
         }
-
         private void ExtsFolderBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            _Spicetify.OpenExtensionsFolder();
+            StaticData.Spicetify.OpenExtensionsFolder();
         }
-
         private void CustomAppsFolderBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            _Spicetify.OpenCustomAppsFolder();
+            StaticData.Spicetify.OpenCustomAppsFolder();
         }
 
         private void ExtsFolderBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Open extensions folder.", ExtsFolderBtn);
         }
-
         private void CustomAppsFolderBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Open custom apps folder.", CustomAppsFolderBtn);
         }
-
         private void ApplyBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Apply current config.", ApplyBtn);
         }
-
         private void SaveBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Save plugins settings.", SaveBtn);
         }
-
         private void ExtensionsList_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Select Extensions you want to use.", ExtensionsList);
         }
-
         private void CustomAppsList_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Select Custom Apps you want to use.", CustomAppsList);

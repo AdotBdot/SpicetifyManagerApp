@@ -8,17 +8,13 @@ namespace SpicetifyManager
 {
     public partial class ManageForm : Form
     {
-        public ManageForm(Spicetify spicetify)
+        public ManageForm()
         {
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadFonts();
             LoadColors();
         }
-
-        private Spicetify _Spicetify;
-
 
         private void LoadFonts()
         {
@@ -28,7 +24,6 @@ namespace SpicetifyManager
             BackupBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             ClearBackupBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
-
         private void LoadColors()
         {
             this.BackColor = Colors.GetBg(0);
@@ -45,58 +40,53 @@ namespace SpicetifyManager
             RestoreBtn.ForeColor = Colors.TxtDark;
         }
 
-
         private void ManageForm_Load(object sender, EventArgs e)
         {
         }
 
         private void RestartBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            Task.Run(() => _Spicetify.Restart());
+            Task.Run(() => StaticData.Spicetify.Restart());
         }
-
         private void UpgradeBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            Task.Run(() => _Spicetify.Upgrade());
+            Task.Run(() => StaticData.Spicetify.Upgrade());
         }
-
         private void BackupBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            Task.Run(() => _Spicetify.Backup());
+            Task.Run(() => StaticData.Spicetify.Backup());
         }
-
         private void ClearBackupBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             DialogResult confirmResult = MessageBox.Show("Are you sure to clear backup?", "Confirmation", MessageBoxButtons.YesNo);
 
             if(confirmResult == DialogResult.Yes)
             {
-                Task.Run(() => _Spicetify.Clear());
+                Task.Run(() => StaticData.Spicetify.Clear());
             }
         }
-
         private void RestoreBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             DialogResult confirmResult = MessageBox.Show("Are you sure to restore Spotify?", "Confirmation", MessageBoxButtons.YesNo);
 
             if(confirmResult == DialogResult.Yes)
             {
-                Task.Run(() => _Spicetify.Restore());
+                Task.Run(() => StaticData.Spicetify.Restore());
             }
         }
 
@@ -104,22 +94,18 @@ namespace SpicetifyManager
         {
             ToolTip.Show("Upgrade Spicetify.", UpgradeBtn);
         }
-
         private void RestartBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Restart Spotify.", RestartBtn);
         }
-
         private void BackupBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Backup Spotify files.", BackupBtn);
         }
-
         private void ClearBackupBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Clear backup.", ClearBackupBtn);
         }
-
         private void RestoreBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Restore Spotify to it's original state.", RestoreBtn);

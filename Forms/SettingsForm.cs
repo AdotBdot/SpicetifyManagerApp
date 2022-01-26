@@ -8,10 +8,8 @@ namespace SpicetifyManager
 {
     public partial class SettingsForm : Form
     {
-        public SettingsForm(Settings settings, Spicetify spicetify)
+        public SettingsForm()
         {
-            _Settings = settings;
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadColors();
@@ -20,15 +18,11 @@ namespace SpicetifyManager
             InitControls();
         }
 
-        private Settings _Settings;
-        private Spicetify _Spicetify;
-
         public void Reload()
         {
-            _Settings.LoadConfig();
+            StaticData.Settings.LoadConfig();
             InitControls();
         }
-
 
         private void LoadFonts()
         {
@@ -55,7 +49,6 @@ namespace SpicetifyManager
             ApplyBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             ConfigFileBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
-
         private void LoadColors()
         {
             this.BackColor = Colors.GetBg(0);
@@ -88,51 +81,48 @@ namespace SpicetifyManager
             ConfigFileBtn.BackColor = Colors.Primary;
             ConfigFileBtn.ForeColor = Colors.TxtDark;
         }
-
         private void InitControls()
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            PrefsPathInput.Text = _Settings.PrefsPath;
-            OverwriteAssetsChkBox.Checked = _Settings.OverwriteAssets;
-            SpotifyPathInput.Text = _Settings.SpotifyPath;
-            InjectCssChkBox.Checked = _Settings.InjectCss;
-            ReplaceColorsChkBox.Checked = _Settings.ReplaceColors;
-            LaunchFlagsInput.Text = _Settings.SpotifyLaunchFlags;
+            PrefsPathInput.Text = StaticData.Settings.PrefsPath;
+            OverwriteAssetsChkBox.Checked = StaticData.Settings.OverwriteAssets;
+            SpotifyPathInput.Text = StaticData.Settings.SpotifyPath;
+            InjectCssChkBox.Checked = StaticData.Settings.InjectCss;
+            ReplaceColorsChkBox.Checked = StaticData.Settings.ReplaceColors;
+            LaunchFlagsInput.Text = StaticData.Settings.SpotifyLaunchFlags;
 
-            DisableSentryChkBox.Checked = _Settings.DisableSentry;
-            DisableUiLoggingChkBox.Checked = _Settings.DisableUiLogging;
-            RemoveRtlRuleChkBox.Checked = _Settings.RemoveRtlRule;
-            ExposeApisChkBox.Checked = _Settings.ExposeApis;
-            DisableUpgradeCheckChkBox.Checked = _Settings.DisableUpgradeCheck;
+            DisableSentryChkBox.Checked = StaticData.Settings.DisableSentry;
+            DisableUiLoggingChkBox.Checked = StaticData.Settings.DisableUiLogging;
+            RemoveRtlRuleChkBox.Checked = StaticData.Settings.RemoveRtlRule;
+            ExposeApisChkBox.Checked = StaticData.Settings.ExposeApis;
+            DisableUpgradeCheckChkBox.Checked = StaticData.Settings.DisableUpgradeCheck;
 
-            HomeConfigChkBox.Checked = _Settings.HomeConfig;
-            SidebarConfigChkBox.Checked = _Settings.SidebarConfig;
-            ExperimentalFeaturesChkBox.Checked = _Settings.ExperimentalFeatures;
+            HomeConfigChkBox.Checked = StaticData.Settings.HomeConfig;
+            SidebarConfigChkBox.Checked = StaticData.Settings.SidebarConfig;
+            ExperimentalFeaturesChkBox.Checked = StaticData.Settings.ExperimentalFeatures;
         }
-
         private void ReadUserInput()
         {
-            _Settings.PrefsPath = PrefsPathInput.Text;
-            _Settings.OverwriteAssets = OverwriteAssetsChkBox.Checked;
-            _Settings.CheckSpicetifyUpgrade = OverwriteAssetsChkBox.Checked;
-            _Settings.SpotifyPath = SpotifyPathInput.Text;
-            _Settings.InjectCss = InjectCssChkBox.Checked;
-            _Settings.ReplaceColors = ReplaceColorsChkBox.Checked;
-            _Settings.SpotifyLaunchFlags = LaunchFlagsInput.Text;
+            StaticData.Settings.PrefsPath = PrefsPathInput.Text;
+            StaticData.Settings.OverwriteAssets = OverwriteAssetsChkBox.Checked;
+            StaticData.Settings.CheckSpicetifyUpgrade = OverwriteAssetsChkBox.Checked;
+            StaticData.Settings.SpotifyPath = SpotifyPathInput.Text;
+            StaticData.Settings.InjectCss = InjectCssChkBox.Checked;
+            StaticData.Settings.ReplaceColors = ReplaceColorsChkBox.Checked;
+            StaticData.Settings.SpotifyLaunchFlags = LaunchFlagsInput.Text;
 
-            _Settings.DisableSentry = DisableSentryChkBox.Checked;
-            _Settings.DisableUiLogging = DisableUiLoggingChkBox.Checked;
-            _Settings.RemoveRtlRule = RemoveRtlRuleChkBox.Checked;
-            _Settings.ExposeApis = ExposeApisChkBox.Checked;
-            _Settings.DisableUpgradeCheck = DisableUpgradeCheckChkBox.Checked;
+            StaticData.Settings.DisableSentry = DisableSentryChkBox.Checked;
+            StaticData.Settings.DisableUiLogging = DisableUiLoggingChkBox.Checked;
+            StaticData.Settings.RemoveRtlRule = RemoveRtlRuleChkBox.Checked;
+            StaticData.Settings.ExposeApis = ExposeApisChkBox.Checked;
+            StaticData.Settings.DisableUpgradeCheck = DisableUpgradeCheckChkBox.Checked;
 
-            _Settings.HomeConfig = HomeConfigChkBox.Checked;
-            _Settings.SidebarConfig = SidebarConfigChkBox.Checked;
-            _Settings.ExperimentalFeatures = ExperimentalFeaturesChkBox.Checked;
+            StaticData.Settings.HomeConfig = HomeConfigChkBox.Checked;
+            StaticData.Settings.SidebarConfig = SidebarConfigChkBox.Checked;
+            StaticData.Settings.ExperimentalFeatures = ExperimentalFeaturesChkBox.Checked;
         }
-
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
@@ -140,76 +130,65 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SaveSettings();
+            StaticData.Settings.SaveSettings();
         }
-
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SaveSettings();
-            Task.Run(() => _Spicetify.Apply());
+            StaticData.Settings.SaveSettings();
+            Task.Run(() => StaticData.Spicetify.Apply());
         }
-
         private void ConfigFileBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            _Spicetify.OpenConfigFile();
+            StaticData.Spicetify.OpenConfigFile();
         }
 
         private void LaunchFlagsInput_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Spotify launch flags.", LaunchFlagsInput);
         }
-
         private void label3_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Spotify launch flags", label3);
         }
-
         private void ConfigFileBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Open config file in text editor.", ConfigFileBtn);
         }
-
         private void SpotifyPathInput_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Path to spotify executable.", SpotifyPathInput);
         }
-
         private void label2_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Path to spotify executable.", label2);
         }
-
         private void label1_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Path to spotify prefs.", label1);
         }
-
         private void PrefsPathInput_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Path to spotify prefs.", PrefsPathInput);
         }
-
         private void SaveBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Save settings.", SaveBtn);
         }
-
         private void ApplyBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Apply current config.", ApplyBtn);
         }
-
         private void ExperimentalFeaturesChkBox_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Enable ability to activate unfinished or work-in-progress features that would eventually be released in future Spotify updates.",ExperimentalFeaturesChkBox);

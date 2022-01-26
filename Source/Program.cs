@@ -71,7 +71,25 @@ namespace SpicetifyManager
     }
     public class StaticData
     {
-        public const string CurrentVersion = "v1.4.0";
+        public static void Init()
+        {
+            UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
+            CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
+
+            Spicetify = new Spicetify(UserDirectory, CliDirectory);
+            Settings = new Settings(Spicetify);
+
+            Spicetify.ListAll();
+            Settings.LoadConfig();
+        }
+
+        public static string UserDirectory;
+        public static string CliDirectory;
+
+        public static Spicetify Spicetify;
+        public static Settings Settings;
+
+        public const string Version = "v1.4.0";
     }
 
     internal static class Program
@@ -107,18 +125,11 @@ namespace SpicetifyManager
 
             My.Fonts.LoadFonts();
 
-            string userDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
-            string cliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
-
-            Spicetify spicetify = new Spicetify(userDirectory, cliDirectory);
-            Settings settings = new Settings(spicetify);
-
-            spicetify.ListAll();
-            settings.LoadConfig();
+            StaticData.Init();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(settings, spicetify));
+            Application.Run(new MainForm());
         }
     }
 }

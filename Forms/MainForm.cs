@@ -7,10 +7,8 @@ namespace SpicetifyManager
 {
     public partial class MainForm : Form
     {
-        public MainForm(Settings settings, Spicetify spicetify)
+        public MainForm()
         {
-            _Settings = settings;
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadFonts();
@@ -19,21 +17,17 @@ namespace SpicetifyManager
             InitControls();
         }
 
-        private Settings _Settings;
-        private Spicetify _Spicetify;
         private Form _ActiveForm = null;
-
 
         private void InitControls()
         {
-            if(_Spicetify.Detected)
+            if(StaticData.Spicetify.Detected)
             {
                 WarningIcon.Hide();
             }
             else
                 WarningIcon.Show();
         }
-
         private void LoadFonts()
         {
             AboutButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
@@ -42,7 +36,6 @@ namespace SpicetifyManager
             SettingsButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
             ThemesButton.Font = new Font(Fonts.Pfc.Families[1], 14.25f);
         }
-
         private void LoadColors()
         {
             this.BackColor = Colors.GetBg(0);
@@ -77,7 +70,6 @@ namespace SpicetifyManager
             ManageButton.BackColor = Colors.GetBg(4);
             ManageButton.ForeColor = Colors.TxtLight;
         }
-
         private void OpenChildForm(Form childForm)
         {
             if(_ActiveForm != null)
@@ -92,7 +84,6 @@ namespace SpicetifyManager
             childForm.BringToFront();
             childForm.Show();
         }
-
         private void SetActiveButton(Button button)
         {
             ClearButtonColors();
@@ -100,59 +91,53 @@ namespace SpicetifyManager
             button.ForeColor = Colors.TxtDark;
         }
 
-
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            OpenChildForm(new SettingsForm(_Settings, _Spicetify));
+            OpenChildForm(new SettingsForm());
             SetActiveButton(SettingsButton);
         }
-
         private void AboutButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            OpenChildForm(new AboutForm(_Settings, _Spicetify));
+            OpenChildForm(new AboutForm());
             SetActiveButton(AboutButton);
         }
-
         private void ManageButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            OpenChildForm(new ManageForm(_Spicetify));
+            OpenChildForm(new ManageForm());
             SetActiveButton(ManageButton);
         }
-
         private void PluginsButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            OpenChildForm(new PluginsForm(_Settings, _Spicetify));
+            OpenChildForm(new PluginsForm());
             SetActiveButton(PluginsButton);
         }
-
         private void ThemesButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            OpenChildForm(new ThemesForm(_Settings, _Spicetify));
+            OpenChildForm(new ThemesForm());
             SetActiveButton(ThemesButton);
         }
-
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected || _ActiveForm == null)
+            if(!StaticData.Spicetify.Detected || _ActiveForm == null)
                 return;
 
             string s = _ActiveForm.Name;
@@ -186,25 +171,22 @@ namespace SpicetifyManager
                 break;
             }
         }
+        private void ToogleConsoleBtn_Click(object sender, EventArgs e)
+        {
+            SpicetifyManager.Program.ToogleConsole();
+        }
 
         private void WarningIcon_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("'spicetify.exe' not found, install spicetify and restart application.", WarningIcon);
         }
-
         private void ToogleConsoleBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Toogle console.", ToogleConsoleBtn);
         }
-
         private void ReloadButton_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Reload current form.", ReloadButton);
-        }
-
-        private void ToogleConsoleBtn_Click(object sender, EventArgs e)
-        {
-            SpicetifyManager.Program.ToogleConsole();
         }
     }
 }

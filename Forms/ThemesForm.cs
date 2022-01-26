@@ -9,10 +9,8 @@ namespace SpicetifyManager
 {
     public partial class ThemesForm : Form
     {
-        public ThemesForm(Settings settings, Spicetify spicetify)
+        public ThemesForm()
         {
-            _Settings = settings;
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadFonts();
@@ -21,15 +19,11 @@ namespace SpicetifyManager
             InitControls();
         }
 
-        private Settings _Settings;
-        private Spicetify _Spicetify;
-
         public void Reload()
         {
-            _Settings.LoadConfig();
+            StaticData.Settings.LoadConfig();
             InitControls();
         }
-
 
         private void LoadFonts()
         {
@@ -43,7 +37,6 @@ namespace SpicetifyManager
             UpdateBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
             ThemeFolderBtn.Font = new Font(Fonts.Pfc.Families[1], 11.25f);
         }
-
         private void LoadColors()
         {
             this.BackColor = Colors.GetBg(0);
@@ -59,48 +52,45 @@ namespace SpicetifyManager
             UpdateBtn.BackColor = Colors.Primary;
             ThemeFolderBtn.BackColor = Colors.Primary;
         }
-
         private void InitControls()
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ThemesDropdown.Items.Clear();
-            foreach(string theme in _Spicetify.GetThemes())
+            foreach(string theme in StaticData.Spicetify.GetThemes())
             {
                 ThemesDropdown.Items.Add(theme);
             }
 
-            if(_Settings.CurrentTheme == string.Empty)
+            if(StaticData.Settings.CurrentTheme == string.Empty)
                 ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf("(none)")];
             else
-                ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(_Settings.CurrentTheme)];
+                ThemesDropdown.SelectedItem = ThemesDropdown.Items[ThemesDropdown.Items.IndexOf(StaticData.Settings.CurrentTheme)];
 
             ColorsDropdown.Items.Clear();
-            foreach(string color in _Spicetify.GetColors(_Settings.CurrentTheme))
+            foreach(string color in StaticData.Spicetify.GetColors(StaticData.Settings.CurrentTheme))
             {
                 ColorsDropdown.Items.Add(color);
             }
 
-            if(_Settings.ColorScheme != string.Empty)
-                ColorsDropdown.SelectedItem = ColorsDropdown.Items[ColorsDropdown.Items.IndexOf(_Settings.ColorScheme)];
+            if(StaticData.Settings.ColorScheme != string.Empty)
+                ColorsDropdown.SelectedItem = ColorsDropdown.Items[ColorsDropdown.Items.IndexOf(StaticData.Settings.ColorScheme)];
             else
                 ColorsDropdown.SelectedItem = null;
         }
-
         private void ReadUserInput()
         {
             if(ThemesDropdown.SelectedItem.ToString() == "(none)")
-                _Settings.CurrentTheme = "";
+                StaticData.Settings.CurrentTheme = "";
             else
-                _Settings.CurrentTheme = ThemesDropdown.SelectedItem.ToString();
+                StaticData.Settings.CurrentTheme = ThemesDropdown.SelectedItem.ToString();
 
             if(ColorsDropdown.SelectedItem == null)
-                _Settings.ColorScheme = "";
+                StaticData.Settings.ColorScheme = "";
             else
-                _Settings.ColorScheme = ColorsDropdown.SelectedItem.ToString();
+                StaticData.Settings.ColorScheme = ColorsDropdown.SelectedItem.ToString();
         }
-
 
         private void ThemesForm_Load(object sender, EventArgs e)
         {
@@ -109,7 +99,7 @@ namespace SpicetifyManager
         private void CurrentThemeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColorsDropdown.Items.Clear();
-            List<string> colors = _Spicetify.GetColors(ThemesDropdown.SelectedItem.ToString());
+            List<string> colors = StaticData.Spicetify.GetColors(ThemesDropdown.SelectedItem.ToString());
             if(colors.Count != 0)
             {
                 foreach(string color in colors)
@@ -128,66 +118,58 @@ namespace SpicetifyManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SaveThemes();
+            StaticData.Settings.SaveThemes();
         }
-
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SaveThemes();
-            Task.Run(() => _Spicetify.Apply());
+            StaticData.Settings.SaveThemes();
+            Task.Run(() => StaticData.Spicetify.Apply());
         }
-
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
             ReadUserInput();
-            _Settings.SaveThemes();
-            Task.Run(() => _Spicetify.Update());
+            StaticData.Settings.SaveThemes();
+            Task.Run(() => StaticData.Spicetify.Update());
         }
-
         private void ThemeFolderBtn_Click(object sender, EventArgs e)
         {
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            _Spicetify.OpenThemeFolder();
+            StaticData.Spicetify.OpenThemeFolder();
         }
 
         private void SaveBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Save themes settings.", SaveBtn);
         }
-
         private void ApplyBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Apply current config.", ApplyBtn);
         }
-
         private void UpdateBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Update theme and color scheme.", UpdateBtn);
         }
-
         private void ThemeFolderBtn_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Open themes folder.", ThemeFolderBtn);
         }
-
         private void ThemesDropdown_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Select the Theme you want to use.", ThemesDropdown);
         }
-
         private void ColorsDropdown_MouseHover(object sender, EventArgs e)
         {
             ToolTip.Show("Select the Color Scheme of chosen theme you want to use.", ColorsDropdown);

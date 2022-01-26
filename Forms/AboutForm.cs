@@ -9,10 +9,8 @@ namespace SpicetifyManager
 {
     public partial class AboutForm : Form
     {
-        public AboutForm(Settings settings, Spicetify spicetify)
+        public AboutForm()
         {
-            _Settings = settings;
-            _Spicetify = spicetify;
             InitializeComponent();
 
             LoadFonts();
@@ -21,12 +19,9 @@ namespace SpicetifyManager
             InitControls();
         }
 
-        private Settings _Settings;
-        private Spicetify _Spicetify;
-
         public void Reload()
         {
-            _Settings.LoadConfig();
+            StaticData.Settings.LoadConfig();
             InitControls();
         }
 
@@ -84,15 +79,15 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            ManagerVer.Text = StaticData.CurrentVersion;
+            ManagerVer.Text = StaticData.Version;
 
-            if(!_Spicetify.Detected)
+            if(!StaticData.Spicetify.Detected)
                 return;
 
-            SpicetifyVer.Text = _Spicetify.Version;
+            SpicetifyVer.Text = StaticData.Spicetify.Version;
 
-            if(_Settings.SpotifyVersion != string.Empty)
-                SpotifyVer.Text = _Settings.SpotifyVersion;
+            if(StaticData.Settings.SpotifyVersion != string.Empty)
+                SpotifyVer.Text = StaticData.Settings.SpotifyVersion;
             else
                 SpotifyVer.Text = "0.0.0";
         }
@@ -123,14 +118,14 @@ namespace SpicetifyManager
         private async void VersionCheckBtn_Click(object sender, EventArgs e)
         {
             var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManagerApp");
-            var text = (latestTag == StaticData.CurrentVersion) ? "You are up to date." : "Version " + latestTag + " available.";
+            var text = (latestTag == StaticData.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             VersionCheckLabel.Text = text;
         }
 
         private async void SpicetifyVersionCheckBtn_Click(object sender, EventArgs e)
         {
             var latestTag = await VersionChecker.GetLastTag("khanhas", "spicetify-cli");
-            var text = (latestTag == "v" + _Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
+            var text = (latestTag == "v" + StaticData.Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionCheckLabel.Text = text;
         }
 
