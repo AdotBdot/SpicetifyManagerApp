@@ -1,9 +1,8 @@
-﻿using System;
+﻿using SpicetifyManager.Source;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Management.Automation;
 using System.Threading.Tasks;
 
 namespace SpicetifyManager
@@ -17,26 +16,6 @@ namespace SpicetifyManager
 
             Detected = DetectSpicetify();
             Version = ReadVersion();
-
-            ListAll();
-        }
-
-        public bool DetectSpicetify()
-        {
-            try
-            {
-                return File.Exists(_CliDirectory + "spicetify.exe");
-            }
-            catch(DirectoryNotFoundException e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
         }
 
         public void ListAll()
@@ -45,7 +24,6 @@ namespace SpicetifyManager
             ListExtensions();
             ListCustomApps();
         }
-
 
         public List<string> GetColors(string themeName)
         {
@@ -103,22 +81,28 @@ namespace SpicetifyManager
 
             return returnValue;
         }
-
         public List<string> GetThemes()
         {
             return _Themes;
         }
-
         public List<string> GetExtensions()
         {
             return _Extensions;
         }
-
         public List<string> GetCustomApps()
         {
             return _CustomApps;
         }
 
+        public string GetConfigPath()
+        {
+            if (!Detected)
+                return string.Empty;
+
+            List<string> results = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-c");
+
+            return results[0];
+        }
 
         public void OpenThemeFolder()
         {
@@ -172,119 +156,108 @@ namespace SpicetifyManager
         }
 
 
-        public string GetConfigPath()
-        {
-            if(!Detected)
-                return string.Empty;
-
-            Collection<PSObject> results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe")
-                .AddParameter("-c").Invoke();
-
-            return results[0].ToString();
-        }
-
-
         public async Task Apply()
         {
             if(!Detected)
                 return;
 
             Console.WriteLine("Applying...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("apply").Invoke();
+            var results = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "apply");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(results);
         }
 
         public async Task Backup()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
             Console.WriteLine("Backuping...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("backup").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "backup");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
         public async Task Clear()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
             Console.WriteLine("Clearing Backup...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-q").AddArgument("clear").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-q clear");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
         public async Task Update()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
             Console.WriteLine("Updating...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("update").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "update");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
         public async Task Restore()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
 
             Console.WriteLine("Restoring Spotify...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restore").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restore");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
         public async Task Upgrade()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
             Console.WriteLine("Upgrading Spicetify...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("upgrade").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "upgrade");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
         public async Task Restart()
         {
-            if(!Detected)
+            if (!Detected)
                 return;
 
             Console.WriteLine("Restarting Spotify...");
-            var response = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddArgument("restart").Invoke();
+            var response = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "restart");
 
-            PrintInvokeResponse(response);
+            ProcessInvoker.PrintInvoke(response);
         }
 
-
-        /*public void Install()
+        private bool DetectSpicetify()
         {
-            if(Detected)
-                return;
-
-            //Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression
-            PowerShell.Create().AddCommand("Invoke-WebRequest").AddParameter("-UseBasicParsing")
-                .AddArgument("https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1")
-                .AddCommand("Invoke-Expression").Invoke();
-
-            PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").Invoke();
-        }*/
-
-
+            try
+            {
+                return File.Exists(_CliDirectory + "spicetify.exe");
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
         private string ReadVersion()
         {
-            if(!Detected)
+            if (!Detected)
                 return "Not detected";
 
-            var results = PowerShell.Create().AddCommand(_CliDirectory + "spicetify.exe").AddParameter("-v").Invoke();
-
-            return results[0].ToString();
+            var results = ProcessInvoker.Invoke(_CliDirectory + "spicetify.exe", "-v");
+            return results[0];
         }
 
         private void ListThemes()
@@ -362,27 +335,7 @@ namespace SpicetifyManager
             }
         }
 
-        private void PrintInvokeResponse(Collection<PSObject> responseCollection)
-        {
-            foreach(var psObject in responseCollection)
-            {
-                Console.WriteLine(ClearEscapeSeq(psObject.ToString()));
-            }
-        }
-
-        private string ClearEscapeSeq(string text)
-        {
-            while(text.Contains("\u001b"))
-            {
-                text = text.Remove(text.IndexOf("\u001b"), text.IndexOf('m', text.IndexOf("\u001b")) - text.IndexOf("\u001b") + 1);
-            }
-
-            return text;
-        }
-
-
         public string Version;
-
         public readonly bool Detected;
 
         private List<string> _Extensions;

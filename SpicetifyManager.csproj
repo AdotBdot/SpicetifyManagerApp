@@ -106,10 +106,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\System.Management.Automation.dll</HintPath>
-    </Reference>
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -143,6 +139,7 @@
     <Compile Include="Forms\PluginsForm.Designer.cs">
       <DependentUpon>PluginsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\ProcessInvoker.cs" />
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\MainForm.cs">
@@ -165,6 +162,7 @@
     <Compile Include="Forms\ThemesForm.Designer.cs">
       <DependentUpon>ThemesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\VersionChecker.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>

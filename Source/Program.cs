@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using Octokit;
 using Application = System.Windows.Forms.Application;
 
 namespace SpicetifyManager
@@ -45,7 +43,6 @@ namespace SpicetifyManager
             public static Color TxtLight = SystemColors.ControlLightLight;
             public static Color TxtDark = SystemColors.ControlText;
         }
-
         public static class Fonts
         {
             public static PrivateFontCollection Pfc = new PrivateFontCollection();
@@ -71,20 +68,10 @@ namespace SpicetifyManager
                 System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             }
         }
-
-        public static class Version
-        {
-            public static async Task<string> GetLastTag(string owner, string repoName)
-            {
-                GitHubClient git = new GitHubClient(new ProductHeaderValue("Tag"));
-                var repo = await git.Repository.Get(owner, repoName);
-                var tags = await git.Repository.GetAllTags(repo.Id);
-
-                return tags[0].Name;
-            }
-
-            public static readonly string CurrentVersion = "v1.3.2";
-        }
+    }
+    public class StaticData
+    {
+        public const string CurrentVersion = "v1.4.0";
     }
 
     internal static class Program

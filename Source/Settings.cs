@@ -106,36 +106,34 @@ namespace SpicetifyManager
             SpotifyVersion = _Reader.ReadString("Backup", "version");
         }
 
-
         private Spicetify _Spicetify;
         private ConfigFileReader _Reader;
         private ConfigFileWriter _Writer;
 
-
         //Settings
         public string PrefsPath;
-        public bool OverwriteAssets;
-        public bool CheckSpicetifyUpgrade;
+        public bool OverwriteAssets { get; set; }
+        public bool CheckSpicetifyUpgrade { get; set; }
         public string SpotifyPath;
         public string CurrentTheme;
         public string ColorScheme;
-        public bool InjectCss;
-        public bool ReplaceColors;
+        public bool InjectCss { get; set; }
+        public bool ReplaceColors { get; set; }
         public string SpotifyLaunchFlags;
 
         //Preprocesses
-        public bool DisableSentry;
-        public bool DisableUiLogging;
-        public bool RemoveRtlRule;
-        public bool ExposeApis;
-        public bool DisableUpgradeCheck;
+        public bool DisableSentry { get; set; }
+        public bool DisableUiLogging { get; set; }
+        public bool RemoveRtlRule { get; set; }
+        public bool ExposeApis { get; set; }
+        public bool DisableUpgradeCheck { get; set; }
 
         //AdditionalOptions
-        public bool HomeConfig;
+        public bool HomeConfig { get; set; }
         public List<string> ExtensionsList;
         public List<string> CustomAppsList;
-        public bool SidebarConfig;
-        public bool ExperimentalFeatures;
+        public bool SidebarConfig { get; set; }
+        public bool ExperimentalFeatures { get; set; }
 
         //Backup
         public string SpotifyVersion;
