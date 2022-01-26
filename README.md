@@ -15,7 +15,6 @@ Graphical interface tool to manage <a href="https://github.com/khanhas/spicetify
 ### Planned Features
  - Installing Spicetify from the app.
  - Color Schemes editor.
- - NoControl integration.
 
 ### Requirements
  - .NET Framework 4.7.2 Runtime. Can be downloaded <a href="https://dotnet.microsoft.com/download/dotnet-framework/net472">here</a>.
