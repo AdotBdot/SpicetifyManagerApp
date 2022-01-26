@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using SpicetifyManager.My;
 
-namespace SpicetifyManager
+namespace SpicetifySettingsApp.Source
 {
     public partial class MainForm : Form
     {
@@ -173,7 +172,7 @@ namespace SpicetifyManager
         }
         private void ToogleConsoleBtn_Click(object sender, EventArgs e)
         {
-            SpicetifyManager.Program.ToogleConsole();
+            Program.ToogleConsole();
         }
 
         private void WarningIcon_MouseHover(object sender, EventArgs e)

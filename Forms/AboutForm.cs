@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using SpicetifyManager.My;
 using SpicetifyManager.Source;
+using SpicetifySettingsApp.Source;
 
-namespace SpicetifyManager
+namespace SpicetifySettingsApp.Source
 {
     public partial class AboutForm : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace SpicetifyManager
+namespace SpicetifySettingsApp.Source
 {
     partial class ManageForm
     {

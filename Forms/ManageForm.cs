@@ -2,9 +2,8 @@
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SpicetifyManager.My;
 
-namespace SpicetifyManager
+namespace SpicetifySettingsApp.Source
 {
     public partial class ManageForm : Form
     {

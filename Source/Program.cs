@@ -1,97 +1,9 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using Application = System.Windows.Forms.Application;
 
-namespace SpicetifyManager
+namespace SpicetifySettingsApp.Source
 {
-    namespace My
-    {
-        public static class Colors
-        {
-            public static Color GetBg(int elevationStep)
-            {
-                switch(elevationStep)
-                {
-                case 0:
-                    return Color.FromArgb(18, 18, 18);
-                case 1:
-                    return Color.FromArgb(29, 29, 29);
-                case 2:
-                    return Color.FromArgb(33, 33, 33);
-                case 3:
-                    return Color.FromArgb(36, 36, 36);
-                case 4:
-                    return Color.FromArgb(38, 38, 38);
-                case 5:
-                    return Color.FromArgb(44, 44, 44);
-                case 6:
-                    return Color.FromArgb(45, 45, 45);
-                case 7:
-                    return Color.FromArgb(50, 50, 50);
-                case 8:
-                    return Color.FromArgb(53, 53, 53);
-                case 9:
-                    return Color.FromArgb(55, 55, 55);
-                default:
-                    return Color.FromArgb(18, 18, 18);
-                }
-            }
-
-            public static Color Primary = Color.FromArgb(234, 82, 58);
-            public static Color TxtLight = SystemColors.ControlLightLight;
-            public static Color TxtDark = SystemColors.ControlText;
-        }
-        public static class Fonts
-        {
-            public static PrivateFontCollection Pfc = new PrivateFontCollection();
-
-            public static void LoadFonts()
-            {
-                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_Regular);
-                LoadFontFromResx(SpicetifyManager.Properties.Resources.OpenSans_SemiBold);
-            }
-
-            [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-            private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-                IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
-            private static void LoadFontFromResx(byte[] font)
-            {
-                byte[] fontData = font;
-                IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-                System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-                uint dummy = 0;
-                Pfc.AddMemoryFont(fontPtr, font.Length);
-                AddFontMemResourceEx(fontPtr, (uint)font.Length, IntPtr.Zero, ref dummy);
-                System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-            }
-        }
-    }
-    public class StaticData
-    {
-        public static void Init()
-        {
-            UserDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\.spicetify\");
-            CliDirectory = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\spicetify-cli\");
-
-            Spicetify = new Spicetify(UserDirectory, CliDirectory);
-            Settings = new Settings(Spicetify);
-
-            Spicetify.ListAll();
-            Settings.LoadConfig();
-        }
-
-        public static string UserDirectory;
-        public static string CliDirectory;
-
-        public static Spicetify Spicetify;
-        public static Settings Settings;
-
-        public const string Version = "v1.4.0";
-    }
-
     internal static class Program
     {
         [DllImport("kernel32.dll")]
@@ -123,8 +35,7 @@ namespace SpicetifyManager
         {
             ShowWindow(GetConsoleWindow(), SW_HIDE);
 
-            My.Fonts.LoadFonts();
-
+            Fonts.LoadFonts();
             StaticData.Init();
 
             Application.EnableVisualStyles();

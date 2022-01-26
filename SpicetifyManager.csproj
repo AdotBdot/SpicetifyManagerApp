@@ -124,6 +124,7 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Colors.cs" />
     <Compile Include="Source\ConfigFileLoader.cs" />
     <Compile Include="Source\ConfigFileReader.cs" />
     <Compile Include="Source\ConfigFileWriter.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Forms\PluginsForm.Designer.cs">
       <DependentUpon>PluginsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Fonts.cs" />
     <Compile Include="Source\ProcessInvoker.cs" />
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Forms\ThemesForm.Designer.cs">
       <DependentUpon>ThemesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\StaticData.cs" />
     <Compile Include="Source\VersionChecker.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
