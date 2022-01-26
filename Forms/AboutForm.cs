@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using SpicetifyManager.My;
-using Version = SpicetifyManager.My.Version;
+using SpicetifyManager.Source;
 
 namespace SpicetifyManager
 {
@@ -84,7 +84,7 @@ namespace SpicetifyManager
 
         private void InitControls()
         {
-            ManagerVer.Text = Version.CurrentVersion;
+            ManagerVer.Text = StaticData.CurrentVersion;
 
             if(!_Spicetify.Detected)
                 return;
@@ -122,14 +122,14 @@ namespace SpicetifyManager
 
         private async void VersionCheckBtn_Click(object sender, EventArgs e)
         {
-            var latestTag = await Version.GetLastTag("AdotBdot", "SpicetifyManagerApp");
-            var text = (latestTag == Version.CurrentVersion) ? "You are up to date." : "Version " + latestTag + " available.";
+            var latestTag = await VersionChecker.GetLastTag("AdotBdot", "SpicetifyManagerApp");
+            var text = (latestTag == StaticData.CurrentVersion) ? "You are up to date." : "Version " + latestTag + " available.";
             VersionCheckLabel.Text = text;
         }
 
         private async void SpicetifyVersionCheckBtn_Click(object sender, EventArgs e)
         {
-            var latestTag = await Version.GetLastTag("khanhas", "spicetify-cli");
+            var latestTag = await VersionChecker.GetLastTag("khanhas", "spicetify-cli");
             var text = (latestTag == "v" + _Spicetify.Version) ? "You are up to date." : "Version " + latestTag + " available.";
             SpicetifyVersionCheckLabel.Text = text;
         }
