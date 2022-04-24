@@ -91,6 +91,7 @@ namespace SpicetifySettingsApp.Source
             InjectCssChkBox.Checked = StaticData.Settings.InjectCss;
             ReplaceColorsChkBox.Checked = StaticData.Settings.ReplaceColors;
             LaunchFlagsInput.Text = StaticData.Settings.SpotifyLaunchFlags;
+            CheckSpicetifyUpgradeChkBox.Checked = StaticData.Settings.CheckSpicetifyUpgrade;
 
             DisableSentryChkBox.Checked = StaticData.Settings.DisableSentry;
             DisableUiLoggingChkBox.Checked = StaticData.Settings.DisableUiLogging;
@@ -106,7 +107,7 @@ namespace SpicetifySettingsApp.Source
         {
             StaticData.Settings.PrefsPath = PrefsPathInput.Text;
             StaticData.Settings.OverwriteAssets = OverwriteAssetsChkBox.Checked;
-            StaticData.Settings.CheckSpicetifyUpgrade = OverwriteAssetsChkBox.Checked;
+            StaticData.Settings.CheckSpicetifyUpgrade = CheckSpicetifyUpgradeChkBox.Checked;
             StaticData.Settings.SpotifyPath = SpotifyPathInput.Text;
             StaticData.Settings.InjectCss = InjectCssChkBox.Checked;
             StaticData.Settings.ReplaceColors = ReplaceColorsChkBox.Checked;
